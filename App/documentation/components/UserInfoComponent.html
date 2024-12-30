@@ -1,0 +1,2918 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>paws-play documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">paws-play documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserInfoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/main/info/user-info/user-info.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-info</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>DialogModule</code>
+                            <code>CalendarModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>TreeTableModule</code>
+                            <code>TableModule</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-info.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./user-info.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formAddMascota" >formAddMascota</a>
+                            </li>
+                            <li>
+                                <a href="#formModMascota" >formModMascota</a>
+                            </li>
+                            <li>
+                                <a href="#formUser" >formUser</a>
+                            </li>
+                            <li>
+                                <a href="#hoy" >hoy</a>
+                            </li>
+                            <li>
+                                <a href="#idUsuario" >idUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#mascotas" >mascotas</a>
+                            </li>
+                            <li>
+                                <a href="#onDestroy$" >onDestroy$</a>
+                            </li>
+                            <li>
+                                <a href="#reservas" >reservas</a>
+                            </li>
+                            <li>
+                                <a href="#token" >token</a>
+                            </li>
+                            <li>
+                                <a href="#usuarioLogueado" >usuarioLogueado</a>
+                            </li>
+                            <li>
+                                <a href="#visibleAdd" >visibleAdd</a>
+                            </li>
+                            <li>
+                                <a href="#visibleMod" >visibleMod</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualizarMascota" >actualizarMascota</a>
+                            </li>
+                            <li>
+                                <a href="#actualizarUsuario" >actualizarUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#addMascota" >addMascota</a>
+                            </li>
+                            <li>
+                                <a href="#agregarMascota" >agregarMascota</a>
+                            </li>
+                            <li>
+                                <a href="#borrarMascota" >borrarMascota</a>
+                            </li>
+                            <li>
+                                <a href="#borrarReserva" >borrarReserva</a>
+                            </li>
+                            <li>
+                                <a href="#cargarDatos" >cargarDatos</a>
+                            </li>
+                            <li>
+                                <a href="#deleteMascota" >deleteMascota</a>
+                            </li>
+                            <li>
+                                <a href="#deleteReserva" >deleteReserva</a>
+                            </li>
+                            <li>
+                                <a href="#esInicioHoyYAntesDeHoraEntrada" >esInicioHoyYAntesDeHoraEntrada</a>
+                            </li>
+                            <li>
+                                <a href="#esReservaActual" >esReservaActual</a>
+                            </li>
+                            <li>
+                                <a href="#esReservaPasada" >esReservaPasada</a>
+                            </li>
+                            <li>
+                                <a href="#modificarMascota" >modificarMascota</a>
+                            </li>
+                            <li>
+                                <a href="#modificarUsuario" >modificarUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerNombresMascotas" >obtenerNombresMascotas</a>
+                            </li>
+                            <li>
+                                <a href="#puedeBorrar" >puedeBorrar</a>
+                            </li>
+                            <li>
+                                <a href="#showDialogAdd" >showDialogAdd</a>
+                            </li>
+                            <li>
+                                <a href="#showDialogMod" >showDialogMod</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(mascotaService: <a href="../injectables/MascotaService.html" target="_self">MascotaService</a>, usuarioService: <a href="../injectables/UsuarioService.html" target="_self">UsuarioService</a>, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, reservasService: <a href="../injectables/ReservaService.html" target="_self">ReservaService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>mascotaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MascotaService.html" target="_self" >MascotaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usuarioService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsuarioService.html" target="_self" >UsuarioService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>reservasService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ReservaService.html" target="_self" >ReservaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarMascota"></a>
+                    <span class="name">
+                        <span ><b>actualizarMascota</b></span>
+                        <a href="#actualizarMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarMascota(id_mascota: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la información de una mascota en el sistema.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id_mascota</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El ID de la mascota que se desea actualizar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una suscripción al observable que se encarga de actualizar la mascota.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarUsuario"></a>
+                    <span class="name">
+                        <span ><b>actualizarUsuario</b></span>
+                        <a href="#actualizarUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarUsuario()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:199</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la información del usuario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Un observable que emite el resultado de la actualización.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addMascota"></a>
+                    <span class="name">
+                        <span ><b>addMascota</b></span>
+                        <a href="#addMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addMascota()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="362"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:362</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Agrega una mascota.</p>
+<p>Muestra un cuadro de diálogo de confirmación y, si el usuario confirma, llama al método agregarMascota.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarMascota"></a>
+                    <span class="name">
+                        <span ><b>agregarMascota</b></span>
+                        <a href="#agregarMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarMascota()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Agrega una mascota.</p>
+<p>Verifica si los campos nombre y fecha están vacíos. Si alguno de ellos está vacío, muestra un mensaje de error.
+Si ambos campos tienen valores, crea un objeto mascota con los datos ingresados y el ID del propietario.
+Luego, llama al método setMascota del servicio mascotaService para guardar la mascota en la base de datos.
+Si la operación es exitosa, muestra un mensaje de éxito, reinicia el formulario y carga los datos actualizados.
+Si ocurre un error, muestra el mensaje de error correspondiente.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Un Observable que se suscribe a la operación de agregar mascota.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="borrarMascota"></a>
+                    <span class="name">
+                        <span ><b>borrarMascota</b></span>
+                        <a href="#borrarMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>borrarMascota(id_mascota: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina una mascota según su ID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id_mascota</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>El ID de la mascota a borrar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una suscripción al observable que indica si la mascota fue borrada correctamente.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="borrarReserva"></a>
+                    <span class="name">
+                        <span ><b>borrarReserva</b></span>
+                        <a href="#borrarReserva"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>borrarReserva(id_reserva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="228"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:228</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina una reserva.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id_reserva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El ID de la reserva a eliminar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una suscripción al observable que emite el resultado de la eliminación de la reserva.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarDatos"></a>
+                    <span class="name">
+                        <span ><b>cargarDatos</b></span>
+                        <a href="#cargarDatos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarDatos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="427"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:427</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga los datos del usuario actual.</p>
+<p>Este método obtiene los datos del usuario actual y realiza las siguientes acciones:</p>
+<ul>
+<li>Obtiene el ID del usuario desde el almacenamiento local.</li>
+<li>Obtiene los datos del usuario llamando al servicio <code>obtenerDatosUsuario</code>.</li>
+<li>Inicializa los valores del formulario <code>formUser</code> con los datos del usuario.</li>
+<li>Obtiene las reservas del usuario llamando al servicio <code>obtenerReservas</code>.</li>
+<li>Ordena las reservas por fecha de finalización de forma descendente.</li>
+</ul>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteMascota"></a>
+                    <span class="name">
+                        <span ><b>deleteMascota</b></span>
+                        <a href="#deleteMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteMascota(id_mascota: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="381"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:381</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina los datos de una mascota.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id_mascota</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El ID de la mascota a borrar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteReserva"></a>
+                    <span class="name">
+                        <span ><b>deleteReserva</b></span>
+                        <a href="#deleteReserva"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteReserva(id_reserva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="400"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:400</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina una reserva.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id_reserva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El ID de la reserva a cancelar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="esInicioHoyYAntesDeHoraEntrada"></a>
+                    <span class="name">
+                        <span ><b>esInicioHoyYAntesDeHoraEntrada</b></span>
+                        <a href="#esInicioHoyYAntesDeHoraEntrada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>esInicioHoyYAntesDeHoraEntrada(fecha_inicio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="521"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:521</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Comprueba si la fecha de inicio es hoy y si la hora actual es anterior a las 14:00.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fecha_inicio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La fecha de inicio en formato de cadena.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Devuelve true si la fecha de inicio es hoy y la hora actual es anterior a las 14:00, de lo contrario devuelve false.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="esReservaActual"></a>
+                    <span class="name">
+                        <span ><b>esReservaActual</b></span>
+                        <a href="#esReservaActual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>esReservaActual(fecha_inicio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fecha_fin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="503"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:503</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Comprueba si una reserva es actual.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fecha_inicio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La fecha de inicio de la reserva en formato de cadena.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fecha_fin</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La fecha de fin de la reserva en formato de cadena.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Devuelve true si la reserva es actual, de lo contrario devuelve false.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="esReservaPasada"></a>
+                    <span class="name">
+                        <span ><b>esReservaPasada</b></span>
+                        <a href="#esReservaPasada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>esReservaPasada(fecha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="488"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:488</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Comprueba si una reserva es pasada.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fecha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La fecha de la reserva en formato de cadena.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Devuelve true si la fecha de reserva es anterior a la fecha actual, de lo contrario devuelve false.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modificarMascota"></a>
+                    <span class="name">
+                        <span ><b>modificarMascota</b></span>
+                        <a href="#modificarMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>modificarMascota(id_mascota: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="328"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:328</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Modifica una mascota.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id_mascota</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>El ID de la mascota a modificar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modificarUsuario"></a>
+                    <span class="name">
+                        <span ><b>modificarUsuario</b></span>
+                        <a href="#modificarUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>modificarUsuario()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:288</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Modifica los datos del usuario.
+Verifica si los campos nombre, apellidos y dirección están vacíos.
+Si alguno de los campos está vacío, muestra un mensaje de error.
+Si todos los campos están completos, muestra un mensaje de confirmación para modificar los datos.
+Si el usuario confirma los cambios, llama a la función actualizarUsuario() y muestra un mensaje de éxito.
+Si el usuario cancela los cambios, no realiza ninguna acción adicional.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="565"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:565</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Se encarga de destruir todas las suscripciones.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerNombresMascotas"></a>
+                    <span class="name">
+                        <span ><b>obtenerNombresMascotas</b></span>
+                        <a href="#obtenerNombresMascotas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerNombresMascotas(mascotas: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="478"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:478</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene los nombres de las mascotas. (para imprimir en la tabla de reservas las mascotas)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mascotas</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Un arreglo de objetos que representan mascotas.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una cadena de texto con los nombres de las mascotas separados por comas.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="puedeBorrar"></a>
+                    <span class="name">
+                        <span ><b>puedeBorrar</b></span>
+                        <a href="#puedeBorrar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>puedeBorrar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="541"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:541</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Determina si el usuario puede ser borrado.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p><code>true</code> si el usuario puede ser borrado, de lo contrario <code>false</code>.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDialogAdd"></a>
+                    <span class="name">
+                        <span ><b>showDialogAdd</b></span>
+                        <a href="#showDialogAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showDialogAdd()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="253"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:253</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Muestra el diálogo para agregar información de usuario.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showDialogMod"></a>
+                    <span class="name">
+                        <span ><b>showDialogMod</b></span>
+                        <a href="#showDialogMod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showDialogMod(mascota: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Muestra el diálogo de modificación de mascota.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mascota</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La mascota que se va a modificar.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formAddMascota"></a>
+                    <span class="name">
+                        <span ><b>formAddMascota</b></span>
+                        <a href="#formAddMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    nombre:        new FormControl(&#x27;&#x27;,[Validators.required, Validators.minLength(3)]),
+    fecha_nac:     new FormControl(&#x27;&#x27;,Validators.required),
+    alergias:      new FormControl(&#x27;&#x27;),
+    observaciones: new FormControl(&#x27;&#x27;),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formModMascota"></a>
+                    <span class="name">
+                        <span ><b>formModMascota</b></span>
+                        <a href="#formModMascota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    nombre:        new FormControl(&#x27;&#x27;,[Validators.required, Validators.minLength(3)]),
+    fecha_nac:     new FormControl(&#x27;&#x27;,Validators.required),
+    alergias:      new FormControl(&#x27;&#x27;),
+    observaciones: new FormControl(&#x27;&#x27;),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formUser"></a>
+                    <span class="name">
+                        <span ><b>formUser</b></span>
+                        <a href="#formUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    nombre:    new FormControl(this.usuarioLogueado.nombre,   [Validators.required, Validators.minLength(3)]),
+    apellidos: new FormControl(this.usuarioLogueado.apellidos,[Validators.required, Validators.minLength(3)]),
+    direccion: new FormControl(this.usuarioLogueado.direccion,[Validators.required, Validators.minLength(10)]),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hoy"></a>
+                    <span class="name">
+                        <span ><b>hoy</b></span>
+                        <a href="#hoy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Date()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idUsuario"></a>
+                    <span class="name">
+                        <span ><b>idUsuario</b></span>
+                        <a href="#idUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mascotas"></a>
+                    <span class="name">
+                        <span ><b>mascotas</b></span>
+                        <a href="#mascotas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Mascota.html" target="_self" >Mascota[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDestroy$"></a>
+                    <span class="name">
+                        <span ><b>onDestroy$</b></span>
+                        <a href="#onDestroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reservas"></a>
+                    <span class="name">
+                        <span ><b>reservas</b></span>
+                        <a href="#reservas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="token"></a>
+                    <span class="name">
+                        <span ><b>token</b></span>
+                        <a href="#token"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.authService.getToken()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarioLogueado"></a>
+                    <span class="name">
+                        <span ><b>usuarioLogueado</b></span>
+                        <a href="#usuarioLogueado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/UsuarioLogged.html" target="_self" >UsuarioLogged</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ id_usuario: -1, nombre: &#x27;&#x27;, apellidos: &#x27;&#x27;, direccion: &#x27;&#x27;, isLogged: false, mascotas: []}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibleAdd"></a>
+                    <span class="name">
+                        <span ><b>visibleAdd</b></span>
+                        <a href="#visibleAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibleMod"></a>
+                    <span class="name">
+                        <span ><b>visibleMod</b></span>
+                        <a href="#visibleMod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/main/info/user-info/user-info.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthService } from &#x27;../../../../services/auth.service&#x27;;
+import { ButtonModule } from &#x27;primeng/button&#x27;;
+import { CalendarModule } from &#x27;primeng/calendar&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Component } from &#x27;@angular/core&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+import { InputTextModule } from &#x27;primeng/inputtext&#x27;;
+import { Mascota, UsuarioLogged } from &#x27;../../../../interfaces/interface&#x27;;
+import { MascotaService } from &#x27;../../../../services/mascota.service&#x27;;
+import { ReservaService } from &#x27;../../../../services/reserva.service&#x27;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+import { TableModule } from &#x27;primeng/table&#x27;;
+import { TreeTableModule } from &#x27;primeng/treetable&#x27;;
+import { UsuarioService } from &#x27;../../../../services/usuario.service&#x27;;
+import Swal from &#x27;sweetalert2&#x27;;
+
+
+
+
+@Component({
+  selector: &#x27;app-user-info&#x27;,
+  standalone: true,
+  imports: [CommonModule, ButtonModule, InputTextModule, DialogModule, CalendarModule, ReactiveFormsModule,TreeTableModule,TableModule],
+  templateUrl: &#x27;./user-info.component.html&#x27;,
+  styleUrl: &#x27;./user-info.component.scss&#x27;
+})
+export class UserInfoComponent {
+  visibleAdd: boolean &#x3D; false;
+  visibleMod: boolean &#x3D; false;
+  idUsuario:  string  &#x3D; &#x27;&#x27;; // no se usa?
+  onDestroy$          &#x3D; new Subject&lt;boolean&gt;();
+
+  usuarioLogueado: UsuarioLogged &#x3D; { id_usuario: -1, nombre: &#x27;&#x27;, apellidos: &#x27;&#x27;, direccion: &#x27;&#x27;, isLogged: false, mascotas: []};
+  mascotas: Mascota[] &#x3D; [];
+  token:    string    &#x3D; this.authService.getToken();
+  reservas: any[]     &#x3D; [];
+  hoy                 &#x3D; new Date();
+  constructor(
+    private mascotaService:   MascotaService,
+    private usuarioService:   UsuarioService,
+    private authService:      AuthService,
+    private reservasService:  ReservaService,
+  ) {
+    this.cargarDatos();
+  }
+
+/*   ngOnInit() {
+    
+  } */
+  formUser &#x3D;   new FormGroup({
+    nombre:    new FormControl(this.usuarioLogueado.nombre,   [Validators.required, Validators.minLength(3)]),
+    apellidos: new FormControl(this.usuarioLogueado.apellidos,[Validators.required, Validators.minLength(3)]),
+    direccion: new FormControl(this.usuarioLogueado.direccion,[Validators.required, Validators.minLength(10)]),
+  });
+
+  formAddMascota &#x3D; new FormGroup({
+    nombre:        new FormControl(&#x27;&#x27;,[Validators.required, Validators.minLength(3)]),
+    fecha_nac:     new FormControl(&#x27;&#x27;,Validators.required),
+    alergias:      new FormControl(&#x27;&#x27;),
+    observaciones: new FormControl(&#x27;&#x27;),
+  });
+
+  formModMascota &#x3D; new FormGroup({
+    nombre:        new FormControl(&#x27;&#x27;,[Validators.required, Validators.minLength(3)]),
+    fecha_nac:     new FormControl(&#x27;&#x27;,Validators.required),
+    alergias:      new FormControl(&#x27;&#x27;),
+    observaciones: new FormControl(&#x27;&#x27;),
+  });
+
+  /**
+   * Agrega una mascota.
+   * 
+   * Verifica si los campos nombre y fecha están vacíos. Si alguno de ellos está vacío, muestra un mensaje de error.
+   * Si ambos campos tienen valores, crea un objeto mascota con los datos ingresados y el ID del propietario.
+   * Luego, llama al método setMascota del servicio mascotaService para guardar la mascota en la base de datos.
+   * Si la operación es exitosa, muestra un mensaje de éxito, reinicia el formulario y carga los datos actualizados.
+   * Si ocurre un error, muestra el mensaje de error correspondiente.
+   * 
+   * @returns Un Observable que se suscribe a la operación de agregar mascota.
+   */
+  agregarMascota() {
+    if(this.formAddMascota.value.nombre &#x3D;&#x3D; &#x27;&#x27;       || this.formAddMascota.value.fecha_nac &#x3D;&#x3D; &#x27;&#x27;
+    || this.formAddMascota.value.nombre &#x3D;&#x3D; null     || this.formAddMascota.value.fecha_nac &#x3D;&#x3D; null
+    || this.formAddMascota.value.nombre?.length &lt; 3 || this.formAddMascota.value.fecha_nac &#x3D;&#x3D; undefined
+    ){
+      Swal.fire({
+        title:              &#x27;Error al añadir mascota&#x27;,
+        text:               &#x27;Los campos nombre o fecha no pueden estar vacíos.&#x27;,
+        icon:               &#x27;error&#x27;,
+        confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+      });
+      return;
+    }
+    
+    const mascota: any &#x3D; {
+      nombre:        this.formAddMascota.value.nombre.trim(),
+      fecha_nac:     this.formAddMascota.value.fecha_nac,
+      alergias:      this.formAddMascota.value.alergias?.trim() || &#x27;&#x27;,
+      observaciones: this.formAddMascota.value.observaciones?.trim() || &#x27;&#x27;,
+      propietario:   this.usuarioLogueado.id_usuario
+    };
+    // console.log(mascota)
+    return this.mascotaService.setMascota(mascota).pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe({
+      next: () &#x3D;&gt; {
+        // console.log(&#x27;Mascota agregada correctamente&#x27;);
+        this.formAddMascota.reset();
+        this.cargarDatos();
+        Swal.fire({
+          title:              &#x27;Mascota registrada!&#x27;,
+          text:               &#x27;Los datos han sido registrados correctamente.&#x27;,
+          icon:               &#x27;success&#x27;,
+          confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+        });
+        this.visibleAdd &#x3D; false;
+      },
+      error: (error) &#x3D;&gt; {
+        // console.error(&quot;Error al agregar usuario: &quot;, error);
+      }
+    }
+    );
+  }
+
+  /**
+   * Actualiza la información de una mascota en el sistema.
+   * 
+   * @param id_mascota - El ID de la mascota que se desea actualizar.
+   * @returns Una suscripción al observable que se encarga de actualizar la mascota.
+   */
+  actualizarMascota(id_mascota: number) {
+
+    const mascota: any &#x3D; {
+      id_mascota:    id_mascota,
+      nombre:        this.formModMascota.value.nombre?.trim(),
+      fecha_nac:     this.formModMascota.value.fecha_nac,
+      alergias:      this.formModMascota.value.alergias?.trim(),
+      observaciones: this.formModMascota.value.observaciones?.trim(),
+      propietario:   this.usuarioLogueado.id_usuario
+    };
+    return this.mascotaService.updateMascota(mascota).pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe({
+      next: () &#x3D;&gt; {
+        // console.log(&#x27;Mascota actualizada correctamente&#x27;);
+        this.cargarDatos();
+        Swal.fire({
+          title:              &#x27;Mascota actualizada&#x27;,
+          text:               &#x27;Los datos han sido actualizados correctamente!&#x27;,
+          icon:               &#x27;success&#x27;,
+          confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+        });
+        this.visibleMod &#x3D; false;
+      },
+      error: (error) &#x3D;&gt; {
+        // console.error(&quot;Error al agregar usuario: &quot;, error);
+        // console.log(error.error.message);
+      }
+    }
+    );
+  }
+
+  /**
+   * Elimina una mascota según su ID.
+   * 
+   * @param id_mascota El ID de la mascota a borrar.
+   * @returns Una suscripción al observable que indica si la mascota fue borrada correctamente.
+   */
+  borrarMascota(id_mascota: number) {
+    // console.log(id_mascota)
+    return this.mascotaService.deleteMascota(id_mascota).pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe({
+      next: () &#x3D;&gt; {
+        // console.log(&#x27;Mascota borrada correctamente&#x27;);
+        this.cargarDatos();
+        Swal.fire({
+          title:              &#x27;Mascota borrada&#x27;,
+          text:               &#x27;Los datos han sido borrados correctamente!&#x27;,
+          icon:               &#x27;success&#x27;,
+          confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+        });
+        this.visibleMod &#x3D; false;
+      },
+      error: (error) &#x3D;&gt; {
+        // console.error(&quot;Error al agregar usuario: &quot;, error);
+        // console.log(error.error.message);
+      }
+    }
+    );
+  }
+
+  /**
+   * Actualiza la información del usuario.
+   * 
+   * @returns Un observable que emite el resultado de la actualización.
+   */
+  actualizarUsuario() {
+    const usuario: any &#x3D; {
+      id_usuario: this.usuarioLogueado.id_usuario,
+      nombre:     this.formUser.value.nombre?.trim(),
+      apellidos:  this.formUser.value.apellidos?.trim(),
+      direccion:  this.formUser.value.direccion?.trim()
+    };
+    // console.log(usuario)
+    return this.usuarioService.updateUsuario(usuario).pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe({
+      next: () &#x3D;&gt; {
+        // console.log(&#x27;Usuario actualizado correctamente&#x27;);
+        this.cargarDatos();
+      },
+      error: (error) &#x3D;&gt; {
+        // console.error(&quot;Error al agregar usuario: &quot;, error);
+        // console.log(error.error.message);
+      }
+    }
+    );
+  }
+
+  /**
+   * Elimina una reserva.
+   * 
+   * @param id_reserva - El ID de la reserva a eliminar.
+   * @returns Una suscripción al observable que emite el resultado de la eliminación de la reserva.
+   */
+  borrarReserva(id_reserva: number) {
+    return this.reservasService.borrarReserva(id_reserva).pipe(
+      takeUntil(this.onDestroy$)
+    ).subscribe({
+      next: () &#x3D;&gt; {
+        this.cargarDatos();
+        Swal.fire({
+          title: &#x27;Reserva cancelada&#x27;,
+          text:  &#x27;Reserva cancelada correctamente!&#x27;,
+          icon:  &#x27;success&#x27;,
+          confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+        });
+        this.visibleMod &#x3D; false;
+      },
+      error: (error) &#x3D;&gt; {
+        // console.error(&quot;Error al agregar usuario: &quot;, error);
+        // console.log(error.error.message);
+      }
+    }
+    );
+  }
+
+  /**
+   * Muestra el diálogo para agregar información de usuario.
+   */
+  showDialogAdd() {
+    this.visibleAdd &#x3D; true;
+  }
+
+  /**
+   * Muestra el diálogo de modificación de mascota.
+   * 
+   * @param mascota - La mascota que se va a modificar.
+   */
+  showDialogMod(mascota: any) {
+    this.visibleMod &#x3D; true;
+
+    let fecha_nac &#x3D; &#x27;&#x27;;
+    if (mascota.fecha_nac) {
+      const fecha &#x3D; new Date(mascota.fecha_nac);
+      fecha.setDate(fecha.getDate() + 1); // saca un dia menos
+      fecha_nac &#x3D; fecha.toISOString().split(&#x27;T&#x27;)[0];
+    }
+
+    this.formModMascota.setValue({
+      nombre:        mascota.nombre?.trim() || &#x27;&#x27;,
+      fecha_nac:     fecha_nac,
+      alergias:      mascota.alergias?.trim() || &#x27;&#x27;,
+      observaciones: mascota.observaciones?.trim() || &#x27;&#x27;,
+    });
+  }
+
+  /**
+   * Modifica los datos del usuario.
+   * Verifica si los campos nombre, apellidos y dirección están vacíos.
+   * Si alguno de los campos está vacío, muestra un mensaje de error.
+   * Si todos los campos están completos, muestra un mensaje de confirmación para modificar los datos.
+   * Si el usuario confirma los cambios, llama a la función actualizarUsuario() y muestra un mensaje de éxito.
+   * Si el usuario cancela los cambios, no realiza ninguna acción adicional.
+   */
+  modificarUsuario(){
+    if(this.formUser.value.nombre?.trim() &#x3D;&#x3D; &#x27;&#x27; || this.formUser.value.apellidos?.trim() &#x3D;&#x3D; &#x27;&#x27; || this.formUser.value.direccion?.trim() &#x3D;&#x3D; &#x27;&#x27;
+    || this.formUser.value.nombre &#x3D;&#x3D; null       || this.formUser.value.apellidos &#x3D;&#x3D; null       || this.formUser.value.direccion &#x3D;&#x3D; null
+    || this.formUser.value.nombre?.length &lt; 3   || this.formUser.value.apellidos?.length &lt; 3   || this.formUser.value.direccion?.length &lt; 10){
+      Swal.fire({
+        title:              &#x27;Error al modificar&#x27;,
+        text:               &#x27;Los campos debeben de ser validos y no pueden estar vacíos!&#x27;,
+        icon:               &#x27;error&#x27;,
+        confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+      });
+      return;
+    }
+    Swal.fire({
+      title:              &#x27;Modificar datos&#x27;,
+      text:               &#x27;Estas seguro de tus cambios?&#x27;,
+      icon:               &#x27;question&#x27;,
+      showCancelButton:   true,
+      confirmButtonColor: &#x27;#F6C344&#x27;,
+      confirmButtonText:  &#x27;Si, modificar&#x27;,
+      cancelButtonText:   &#x27;Cancelar&#x27;,
+    }).then((result) &#x3D;&gt; {
+      if (result.value) {
+        this.actualizarUsuario();
+        Swal.fire({
+          title: &#x27;Confirmado&#x27;,
+          text:  &#x27;Sus datos han sido actualizados!&#x27;,
+          icon:  &#x27;success&#x27;,
+          confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+        })
+      } else if (result.dismiss &#x3D;&#x3D;&#x3D; Swal.DismissReason.cancel) {
+
+      }
+    })
+  }
+
+  /**
+   * Modifica una mascota.
+   * 
+   * @param id_mascota - El ID de la mascota a modificar.
+   */
+  modificarMascota(id_mascota: number){
+
+    // console.log(this.formModMascota.value)
+    // esto debe de moverse a la comprobacion anterior
+    if(!this.formModMascota.value.nombre?.trim()    || this.formModMascota.value.fecha_nac &#x3D;&#x3D; &#x27;&#x27;
+    || this.formModMascota.value.nombre &#x3D;&#x3D; null     || this.formModMascota.value.fecha_nac &#x3D;&#x3D; null
+    || this.formModMascota.value.nombre?.length &lt; 3 || this.formModMascota.value.fecha_nac &#x3D;&#x3D; undefined
+    ){
+      Swal.fire({
+        title: &#x27;Error al añadir mascota&#x27;,
+        text:  &#x27;Los campos nombre o fecha no pueden estar vacíos.&#x27;,
+        icon:  &#x27;error&#x27;,
+        confirmButtonColor: &#x27;#F6C344&#x27; // Cambiar el color del botón de confirmación
+      });
+      return;
+    }
+    Swal.fire({
+      title:              &#x27;Modificar mascota&#x27;,
+      text:               &#x27;Estas seguro de tus cambios?&#x27;,
+      icon:               &#x27;question&#x27;,
+      showCancelButton:   true,
+      confirmButtonColor: &#x27;#F6C344&#x27;,
+      confirmButtonText:  &#x27;Si, modificar&#x27;,
+      cancelButtonText:   &#x27;Cancelar&#x27;,
+    }).then((result) &#x3D;&gt; {
+      if (result.value) { this.actualizarMascota(id_mascota);}
+    })
+  }
+
+  /**
+   * Agrega una mascota.
+   * 
+   * Muestra un cuadro de diálogo de confirmación y, si el usuario confirma, llama al método agregarMascota.
+   */
+  addMascota(){
+    Swal.fire({
+      title:              &#x27;Modificar mascota&#x27;,
+      text:               &#x27;Estas seguro de tus cambios?&#x27;,
+      icon:               &#x27;question&#x27;,
+      showCancelButton:   true,
+      confirmButtonColor: &#x27;#F6C344&#x27;,
+      confirmButtonText:  &#x27;Si, modificar&#x27;,
+      cancelButtonText:   &#x27;Cancelar&#x27;,
+    }).then((result) &#x3D;&gt; {
+      if (result.value) { this.agregarMascota(); }
+    })
+  }
+
+  /**
+   * Elimina los datos de una mascota.
+   * 
+   * @param id_mascota - El ID de la mascota a borrar.
+   */
+  deleteMascota(id_mascota: number){
+    Swal.fire({
+      title:              &#x27;Borrar mascota&#x27;,
+      text:               &#x27;Estas seguro de querer borrar los datos de tu mascota?&#x27;,
+      icon:               &#x27;warning&#x27;,
+      showCancelButton:   true,
+      confirmButtonColor: &#x27;#F6C344&#x27;,
+      confirmButtonText:  &#x27;Si, borrar&#x27;,
+      cancelButtonText:   &#x27;Cancelar&#x27;,
+    }).then((result) &#x3D;&gt; {
+      if (result.value) { this.borrarMascota(id_mascota); }
+    })
+  }
+
+  /**
+   * Elimina una reserva.
+   * 
+   * @param id_reserva - El ID de la reserva a cancelar.
+   */
+  deleteReserva(id_reserva: number){
+    Swal.fire({
+      title:              &#x27;Cancelar reserva&#x27;,
+      text:               &#x27;Estas seguro de querer cancelar esta reserva?&#x27;,
+      icon:               &#x27;warning&#x27;,
+      showCancelButton:   true,
+      confirmButtonColor: &#x27;#F6C344&#x27;,
+      confirmButtonText:  &#x27;Si, cancelar&#x27;,
+      cancelButtonText:   &#x27;Cancelar&#x27;,
+    }).then((result) &#x3D;&gt; {
+      if (result.value) { this.borrarReserva(id_reserva); }
+    })
+  }
+
+  /**
+   * Carga los datos del usuario actual.
+   * 
+   * @remarks
+   * Este método obtiene los datos del usuario actual y realiza las siguientes acciones:
+   * - Obtiene el ID del usuario desde el almacenamiento local.
+   * - Obtiene los datos del usuario llamando al servicio &#x60;obtenerDatosUsuario&#x60;.
+   * - Inicializa los valores del formulario &#x60;formUser&#x60; con los datos del usuario.
+   * - Obtiene las reservas del usuario llamando al servicio &#x60;obtenerReservas&#x60;.
+   * - Ordena las reservas por fecha de finalización de forma descendente.
+   * 
+   * @public
+   */
+  cargarDatos(){
+    // console.info(&#x27;Cargando datos del usuario&#x27;);
+    this.idUsuario &#x3D; localStorage.getItem(&#x27;token&#x27;) ?? &#x27;&#x27;;
+
+    this.usuarioService.obtenerDatosUsuario().pipe(
+      takeUntil(this.onDestroy$)
+    )
+      .subscribe(
+        {
+          next: (res: any) &#x3D;&gt; {
+            this.usuarioLogueado &#x3D; res;
+            this.mascotas &#x3D; res.mascotas;
+            /* para inicializar los valores de form user */
+            this.formUser &#x3D; new FormGroup({
+              nombre:    new FormControl(this.usuarioLogueado.nombre),
+              apellidos: new FormControl(this.usuarioLogueado.apellidos),
+              direccion: new FormControl(this.usuarioLogueado.direccion),
+            });
+            this.reservasService.obtenerReservas(this.usuarioLogueado.id_usuario).pipe(
+              takeUntil(this.onDestroy$)
+            ).subscribe({
+              next: (res: any) &#x3D;&gt; {
+                this.reservas &#x3D; res;
+                /* fehcas ordenadas de forma descendente */
+                this.reservas.sort((a, b) &#x3D;&gt; {
+                  const fechaFinA &#x3D; new Date(a.fecha_fin);
+                  const fechaFinB &#x3D; new Date(b.fecha_fin);
+                
+                  // Ordena de forma descendente
+                  return fechaFinB.getTime() - fechaFinA.getTime();
+                });
+
+              },
+              error: (error: any) &#x3D;&gt; {
+                // console.warn(&#x27;Error interno del servidorr&#x27;);
+              }
+            });
+          },
+          error: (error: any) &#x3D;&gt; {
+            // console.warn(&#x27;Error interno del servidorr&#x27;);
+          }
+        });
+
+  }
+
+  /**
+   * Obtiene los nombres de las mascotas. (para imprimir en la tabla de reservas las mascotas)
+   * 
+   * @param mascotas - Un arreglo de objetos que representan mascotas.
+   * @returns Una cadena de texto con los nombres de las mascotas separados por comas.
+   */
+  obtenerNombresMascotas(mascotas: any[]) {
+    return mascotas.map(mascota &#x3D;&gt; mascota.nombre).join(&#x27;, &#x27;);
+  }
+
+  /**
+   * Comprueba si una reserva es pasada.
+   * 
+   * @param {string} fecha - La fecha de la reserva en formato de cadena.
+   * @returns {boolean} - Devuelve true si la fecha de reserva es anterior a la fecha actual, de lo contrario devuelve false.
+   */
+  esReservaPasada(fecha: string): boolean {
+    const hoy &#x3D; new Date();
+    const  fechaReserva &#x3D; new Date(fecha);
+  
+    return fechaReserva &lt; hoy;
+  }
+
+
+  /**
+   * Comprueba si una reserva es actual.
+   * 
+   * @param fecha_inicio - La fecha de inicio de la reserva en formato de cadena.
+   * @param fecha_fin - La fecha de fin de la reserva en formato de cadena.
+   * @returns Devuelve true si la reserva es actual, de lo contrario devuelve false.
+   */
+  esReservaActual(fecha_inicio: string, fecha_fin: string): boolean {
+    const hoy           &#x3D; new Date();
+    const inicioReserva &#x3D; new Date(fecha_inicio);
+    const finReserva    &#x3D; new Date(fecha_fin);
+  
+    // Establecer las horas, minutos, segundos y milisegundos a 0 para comparar solo las fechas
+    inicioReserva.setHours(14, 0, 0, 0);
+    finReserva   .setHours(14, 0, 0, 0); // La hora de finalización es a las 14:00
+  
+    return inicioReserva &lt;&#x3D; hoy &amp;&amp; hoy &lt;&#x3D; finReserva;
+  }
+
+  /**
+   * Comprueba si la fecha de inicio es hoy y si la hora actual es anterior a las 14:00.
+   * 
+   * @param fecha_inicio - La fecha de inicio en formato de cadena.
+   * @returns Devuelve true si la fecha de inicio es hoy y la hora actual es anterior a las 14:00, de lo contrario devuelve false.
+   */
+  esInicioHoyYAntesDeHoraEntrada(fecha_inicio: string): boolean {
+    const hoy &#x3D; new Date();
+    const inicioReserva &#x3D; new Date(fecha_inicio);
+  
+    // Establecer las horas, minutos, segundos y milisegundos a 0 para comparar solo las fechas
+    inicioReserva.setHours(14, 0, 0, 0);
+  
+    // Crear una copia de &#x27;hoy&#x27; y establecer la hora a 14:00 para comparar
+    const hoy14 &#x3D; new Date(hoy.getTime());
+    hoy14.setHours(14, 0, 0, 0);
+  
+    // Comprobar si la fecha de inicio es hoy y si la hora actual es menor que 14:00
+    return inicioReserva.getTime() &#x3D;&#x3D;&#x3D; hoy14.getTime() &amp;&amp; hoy.getHours() &lt; 14;
+  }
+
+  /**
+   * Determina si el usuario puede ser borrado.
+   * 
+   * @returns &#x60;true&#x60; si el usuario puede ser borrado, de lo contrario &#x60;false&#x60;.
+   */
+  puedeBorrar(): boolean {
+    const hoy &#x3D; new Date();
+    
+    if (this.reservas.length &lt;&#x3D; 0) {
+      // Si no hay reservas, se puede borrar
+      return true;
+    }
+    
+    for (let reserva of this.reservas) {
+      const finReserva &#x3D; new Date(reserva.fecha_fin);
+    
+      if (finReserva &gt;&#x3D; hoy) {
+        // Si la fecha y hora de finalización de la reserva son mayores o iguales que ahora, no se puede borrar
+        return false;
+      }
+    }
+    
+    // Si todas las reservas tienen una fecha y hora de finalización menores que ahora, se puede borrar
+    return true;
+  }
+
+  /**
+   * Se encarga de destruir todas las suscripciones.
+   */
+  ngOnDestroy(): void {
+    //Destruimos todas las suscripciones
+    this.onDestroy$.next(true);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section&gt;
+    &lt;div class&#x3D;&quot;py-8&quot;&gt;
+        &lt;div class&#x3D;&quot;mx-auto px-2 max-w-7xl text-paws-play-300&quot;&gt;
+            &lt;div class&#x3D;&quot;relative&quot;&gt;
+                &lt;div class&#x3D;&quot;relative z-10 grid gap-3 grid-cols-6&quot;&gt;
+                    &lt;div
+                        class&#x3D;&quot;col-span-full lg:col-span-6 overflow-hidden relative p-8 rounded-xl bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm&quot;&gt;
+                        @if (reservas.length &gt; 0 ) {
+                        &lt;p-table [value]&#x3D;&quot;reservas&quot; [tableStyle]&#x3D;&quot;{&#x27;min-width&#x27;: &#x27;0rem&#x27; }&quot; [scrollable]&#x3D;&quot;true&quot;
+                            scrollHeight&#x3D;&quot;40vh&quot;&gt;
+                            &lt;ng-template pTemplate&#x3D;&quot;header&quot; let-columns&gt;
+                                &lt;tr&gt;
+                                    &lt;th&gt;Fecha&lt;/th&gt;
+                                    &lt;th&gt;Precio&lt;/th&gt;
+                                    &lt;th&gt;Mascotas&lt;/th&gt;
+                                    &lt;th&gt;Cancelar&lt;/th&gt;
+                                &lt;/tr&gt;
+                            &lt;/ng-template&gt;
+                            &lt;ng-template pTemplate&#x3D;&quot;body&quot; let-reserva let-columns&#x3D;&quot;columns&quot;&gt;
+                                &lt;tr [ngClass]&#x3D;&quot;{
+                                &#x27;alojados-actual&#x27;: esReservaActual(reserva.fecha_inicio, reserva.fecha_fin),
+                                &#x27;reserva-pasada&#x27;:  esReservaPasada(reserva.fecha_fin),
+                                &#x27;dia-entrada&#x27;:  esInicioHoyYAntesDeHoraEntrada(reserva.fecha_inicio)
+                              }&quot;&gt;
+                                    &lt;td&gt;Entrada: {{reserva.fecha_inicio | date:&#x27;dd/MM/yyyy&#x27;}} Salida:
+                                        {{reserva.fecha_fin | date:&#x27;dd/MM/yyyy&#x27;}}&lt;/td&gt;
+                                    &lt;!-- &lt;td&gt;&lt;/td&gt; --&gt;
+                                    &lt;td&gt;{{reserva.precio}}&lt;/td&gt;
+                                    &lt;td&gt;{{obtenerNombresMascotas(reserva.mascotas) | titlecase}}&lt;/td&gt;
+                                    &lt;td&gt;&lt;p-button [hidden]&#x3D;&quot;esReservaPasada(reserva.fecha_inicio)&quot; type&#x3D;&quot;button&quot;
+                                            icon&#x3D;&quot;pi pi-trash&quot; label&#x3D;&quot;Cancelar&quot;
+                                            (click)&#x3D;&quot;deleteReserva(reserva.id_reserva)&quot;
+                                            [style]&#x3D;&quot;{ width: &#x27;100%&#x27;, height: &#x27;40%&#x27; }&quot; [rounded]&#x3D;&quot;true&quot;&gt;&lt;/p-button&gt;
+                                        @if (esInicioHoyYAntesDeHoraEntrada(reserva.fecha_inicio)) {
+                                        &lt;p&gt;Check-in antes de las 14:00h&lt;/p&gt;
+                                        }
+                                        @else if (esReservaActual(reserva.fecha_inicio, reserva.fecha_fin)) {
+                                        &lt;p&gt;Mascotas alojadas&lt;/p&gt;
+                                        }
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/ng-template&gt;
+                        &lt;/p-table&gt;
+                        } @else {
+                        &lt;p class&#x3D;&quot;text-center&quot;&gt;No hay reservas&lt;/p&gt;
+                        }
+
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-span-full md:col-span-3 overflow-hidden flex relative p-3 rounded-xl
+                        bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm&quot;&gt;
+                        &lt;div class&#x3D;&quot; px-4 py-4 sm:px-0 bg-white shadow-lg rounded-xl sm:p-12 w-full&quot;&gt;
+                            &lt;div class&#x3D;&quot;max-w-md mx-4 sm:mx-auto md:mx-4 lg:mx-auto&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;h1 class&#x3D;&quot;text-2xl text-paws-play-400 text-center&quot;&gt;Mis datos&lt;/h1&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;divide-y divide-gray-200&quot;&gt;
+                                    &lt;form [formGroup]&#x3D;&quot;formUser&quot; (ngSubmit)&#x3D;&quot;modificarUsuario()&quot;
+                                        class&#x3D;&quot;py-0 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7&quot;&gt;
+                                        &lt;!-- &lt;input [hidden]&#x3D;&quot;true&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot; /&gt; --&gt;
+                                        &lt;div class&#x3D;&quot;relative&quot;&gt;
+                                            &lt;label for&#x3D;&quot;nombre&quot;&gt;Nombre&lt;/label&gt;
+                                            &lt;br&gt;
+                                            &lt;input id&#x3D;&quot;nombre&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                formControlName&#x3D;&quot;nombre&quot; /&gt;
+                                            @if(this.formUser.get(&#x27;nombre&#x27;)?.errors?.[&#x27;required&#x27;]) {
+                                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Campo requerido)&lt;/span&gt;
+                                            }
+                                            @if(this.formUser.get(&#x27;nombre&#x27;)?.errors?.[&#x27;minlength&#x27;]) {
+                                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Al menos 3 caracteres)&lt;/span&gt;
+                                            }
+                                        &lt;/div&gt;
+
+                                        &lt;div class&#x3D;&quot;relative&quot;&gt;
+                                            &lt;label for&#x3D;&quot;apellidos&quot;&gt;Apellidos&lt;/label&gt;
+                                            &lt;br&gt;
+                                            &lt;input id&#x3D;&quot;apellidos&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                formControlName&#x3D;&quot;apellidos&quot; /&gt;
+                                            @if(this.formUser.get(&#x27;apellidos&#x27;)?.errors?.[&#x27;required&#x27;]) {
+                                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Campo requerido)&lt;/span&gt;
+                                            }
+                                            @if(this.formUser.get(&#x27;apellidos&#x27;)?.errors?.[&#x27;minlength&#x27;]) {
+                                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Al menos 3 caracteres)&lt;/span&gt;
+                                            }
+                                        &lt;/div&gt;
+
+                                        &lt;div class&#x3D;&quot;relative&quot;&gt;
+                                            &lt;label for&#x3D;&quot;direccion&quot;&gt;Direccion&lt;/label&gt;
+                                            &lt;br&gt;
+                                            &lt;input id&#x3D;&quot;direccion&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                formControlName&#x3D;&quot;direccion&quot; /&gt;
+                                            @if(this.formUser.get(&#x27;direccion&#x27;)?.errors?.[&#x27;required&#x27;]) {
+                                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Campo requerido)&lt;/span&gt;
+                                            }
+                                            @if(this.formUser.get(&#x27;direccion&#x27;)?.errors?.[&#x27;minlength&#x27;]) {
+                                            &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Al menos 10 caracteres)&lt;/span&gt;
+                                            }
+                                        &lt;/div&gt;
+                                        &lt;div class&#x3D;&quot;relative&quot;&gt;
+                                            &lt;p-button type&#x3D;&quot;submit&quot; icon&#x3D;&quot;pi pi-user-edit&quot; label&#x3D;&quot;Modificar&quot;
+                                                [style]&#x3D;&quot;{ width: &#x27;100%&#x27;, height: &#x27;40px&#x27; }&quot; [rounded]&#x3D;&quot;true&quot;&gt;&lt;/p-button&gt;
+                                        &lt;/div&gt;
+                                    &lt;/form&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-span-full md:col-span-3 overflow-hidden flex relative p-3 rounded-xl
+                     bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm&quot;&gt;
+                        &lt;div class&#x3D;&quot;px-4 py-4 sm:px-0 bg-white shadow-lg rounded-xl sm:p-12 w-full&quot;&gt;
+                            &lt;div class&#x3D;&quot;max-w-md mx-4 sm:mx-auto md:mx-4 lg:mx-auto&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;h1 class&#x3D;&quot;text-2xl text-paws-play-400 text-center&quot;&gt;Mis mascotas&lt;/h1&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;flex flex-col justify-between items-stretch h-full&quot;&gt;
+                                    &lt;div
+                                        class&#x3D;&quot;py-0 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7&quot;&gt;
+                                        &lt;div class&#x3D;&quot;relative mt-6 mx-2&quot;&gt;
+                                            &lt;p-button (click)&#x3D;&quot;showDialogAdd()&quot; icon&#x3D;&quot;pi pi-plus&quot;
+                                                label&#x3D;&quot;Añadir nueva mascota&quot; [style]&#x3D;&quot;{ width: &#x27;100%&#x27; }&quot;&gt;&lt;/p-button&gt;
+                                            &lt;p-dialog header&#x3D;&quot;Añade una mascota&quot; [(visible)]&#x3D;&quot;visibleAdd&quot;
+                                                [style]&#x3D;&quot;{ width: &#x27;400px&#x27;, height: &#x27;450px&#x27; }&quot;&gt;
+                                                &lt;form [formGroup]&#x3D;&quot;formAddMascota&quot; (ngSubmit)&#x3D;&quot;agregarMascota()&quot;&gt;
+                                                    &lt;label for&#x3D;&quot;nombre&quot;&gt;Nombre*&lt;/label&gt;
+                                                    &lt;br&gt;
+                                                    &lt;input id&#x3D;&quot;nombre&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                        formControlName&#x3D;&quot;nombre&quot; /&gt;
+                                                    @if(this.formAddMascota.get(&#x27;nombre&#x27;)?.errors?.[&#x27;required&#x27;]) {
+                                                    &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Campo requerido)&lt;/span&gt;
+                                                    &lt;br&gt;
+                                                    }
+                                                    @if(this.formAddMascota.get(&#x27;nombre&#x27;)?.errors?.[&#x27;minlength&#x27;]) {
+                                                    &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Al menos 3 caracteres)&lt;/span&gt;
+                                                    &lt;br&gt;
+                                                    }
+                                                    &lt;label for&#x3D;&quot;fecha_nac&quot;&gt;Fecha de nacimiento*&lt;/label&gt;
+                                                    &lt;br&gt;
+                                                    &lt;input id&#x3D;&quot;fecha_nac&quot; type&#x3D;&quot;date&quot; pInputText [max]&#x3D;&quot;hoy.toISOString().split(&#x27;T&#x27;)[0]&quot;
+                                                        [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot; formControlName&#x3D;&quot;fecha_nac&quot; /&gt;
+                                                    @if(this.formAddMascota.get(&#x27;fecha_nac&#x27;)?.errors?.[&#x27;required&#x27;]) {
+                                                    &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Campo requerido)&lt;/span&gt;
+                                                    &lt;br&gt;
+                                                    }
+                                                    &lt;label for&#x3D;&quot;alergias&quot;&gt;Alergias&lt;/label&gt;
+                                                    &lt;br&gt;
+                                                    &lt;input id&#x3D;&quot;alergias&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                        formControlName&#x3D;&quot;alergias&quot; /&gt;
+                                                    &lt;label for&#x3D;&quot;observaciones&quot;&gt;Observaciones&lt;/label&gt;
+                                                    &lt;br&gt;
+                                                    &lt;input id&#x3D;&quot;observaciones&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                        formControlName&#x3D;&quot;observaciones&quot; /&gt;
+                                                    &lt;button
+                                                        class&#x3D;&quot;bg-paws-play-50 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                    hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50&quot;
+                                                    &gt;
+                                                    &lt;!-- [disabled]&#x3D;&quot;formAddMascota.invalid&quot; --&gt;
+                                                    Añadir&lt;/button&gt;
+                                                &lt;/form&gt;
+                                            &lt;/p-dialog&gt;
+                                            &lt;div class&#x3D;&quot;px-0 py-8 grid grid-cols-1 gap-2 &quot;&gt;
+                                                @if(mascotas){
+                                                @if (mascotas.length &gt; 0) {
+                                                @for (mascota of mascotas; track $index) {
+                                                &lt;!-- &lt;p&gt;{{mascota.nombre}}&lt;/p&gt; --&gt;
+                                                &lt;p-button (click)&#x3D;&quot;showDialogMod(mascota)&quot; icon&#x3D;&quot;pi pi-pencil&quot;
+                                                    [label]&#x3D;&quot;mascota.nombre | titlecase&quot;
+                                                    [style]&#x3D;&quot;{ width: &#x27;100%&#x27;, height: &#x27;40px&#x27; }&quot;
+                                                    [rounded]&#x3D;&quot;true&quot;&gt;&lt;/p-button&gt;
+                                                &lt;p-dialog header&#x3D;&quot;Modificar mascota&quot; [(visible)]&#x3D;&quot;visibleMod&quot;
+                                                    [style]&#x3D;&quot;{ width: &#x27;400px&#x27;, height: &#x27;450px&#x27; }&quot;&gt;
+                                                    &lt;form [formGroup]&#x3D;&quot;formModMascota&quot;
+                                                        (ngSubmit)&#x3D;&quot;modificarMascota(mascota.id_mascota)&quot;&gt;
+                                                        &lt;!-- &lt;input [hidden]&#x3D;&quot;true&quot; [value]&#x3D;&quot;mascota.id_mascota&quot; /&gt; --&gt;
+                                                        &lt;label for&#x3D;&quot;nombre&quot;&gt;Nombre&lt;/label&gt;
+                                                        &lt;br&gt;
+                                                        &lt;input id&#x3D;&quot;nombre&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                            formControlName&#x3D;&quot;nombre&quot; /&gt;
+                                                        @if(this.formModMascota.get(&#x27;nombre&#x27;)?.errors?.[&#x27;required&#x27;])
+                                                        {
+                                                        &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Campo requerido)&lt;/span&gt;
+                                                        &lt;br&gt;
+                                                        }
+                                                        @if(this.formModMascota.get(&#x27;nombre&#x27;)?.errors?.[&#x27;minlength&#x27;])
+                                                        {
+                                                        &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Al menos 3 caracteres)&lt;/span&gt;
+                                                        &lt;br&gt;
+                                                        }
+                                                        &lt;label for&#x3D;&quot;fecha&quot;&gt;Fecha de nacimiento&lt;/label&gt;
+                                                        &lt;br&gt;
+                                                        &lt;!-- mirar esto de la fecha --&gt;
+                                                        &lt;!-- &lt;p-calendar [style]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot; formControlName&#x3D;&quot;fecha_nac&quot; dateFormat&#x3D;&quot;yy.mm.dd&quot;&gt;&lt;/p-calendar&gt; --&gt;
+                                                        &lt;input id&#x3D;&quot;fecha_nac&quot; type&#x3D;&quot;date&quot; pInputText
+                                                            [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot; formControlName&#x3D;&quot;fecha_nac&quot; /&gt;
+                                                        @if(this.formModMascota.get(&#x27;fecha_nac&#x27;)?.errors?.[&#x27;required&#x27;])
+                                                        {
+                                                        &lt;span class&#x3D;&quot;text-red-500&quot;&gt;(Campo requerido)&lt;/span&gt;
+                                                        &lt;br&gt;
+                                                        }
+                                                        &lt;br&gt;
+                                                        &lt;label for&#x3D;&quot;alergias&quot;&gt;Alergias&lt;/label&gt;
+                                                        &lt;br&gt;
+                                                        &lt;input id&#x3D;&quot;alergias&quot; pInputText [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                            formControlName&#x3D;&quot;alergias&quot; /&gt;
+                                                        &lt;label for&#x3D;&quot;observaciones&quot;&gt;Observaciones&lt;/label&gt;
+                                                        &lt;br&gt;
+                                                        &lt;input id&#x3D;&quot;observaciones&quot; pInputText
+                                                            [ngStyle]&#x3D;&quot;{&#x27;width&#x27;:&#x27;100%&#x27;}&quot;
+                                                            formControlName&#x3D;&quot;observaciones&quot; /&gt;
+                                                        &lt;div class&#x3D;&quot;flex justify-between&quot;&gt;
+                                                            &lt;button
+                                                                class&#x3D;&quot;bg-paws-play-50 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                                        hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50&quot;
+                                                                &gt;
+                                                                &lt;!-- [disabled]&#x3D;&quot;formModMascota.invalid&quot; --&gt;
+                                                                Actualizar&lt;/button&gt;
+                                                            @if (puedeBorrar()) { &lt;button
+                                                                class&#x3D;&quot;bg-orange-500 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                                              hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50&quot;
+                                                                (click)&#x3D;&quot;deleteMascota(mascota.id_mascota)&quot;
+                                                                type&#x3D;&quot;button&quot;&gt;Borrar&lt;/button&gt;
+                                                            }
+                                                        &lt;/div&gt;
+
+                                                    &lt;/form&gt;
+                                                &lt;/p-dialog&gt;
+                                                }
+                                                } @else {
+                                                &lt;p&gt;No hay mascotas&lt;/p&gt;
+                                                }
+                                                }
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section>    <div class="py-8">        <div class="mx-auto px-2 max-w-7xl text-paws-play-300">            <div class="relative">                <div class="relative z-10 grid gap-3 grid-cols-6">                    <div                        class="col-span-full lg:col-span-6 overflow-hidden relative p-8 rounded-xl bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm">                        @if (reservas.length > 0 ) {                        <p-table [value]="reservas" [tableStyle]="{\'min-width\': \'0rem\' }" [scrollable]="true"                            scrollHeight="40vh">                            <ng-template pTemplate="header" let-columns>                                <tr>                                    <th>Fecha</th>                                    <th>Precio</th>                                    <th>Mascotas</th>                                    <th>Cancelar</th>                                </tr>                            </ng-template>                            <ng-template pTemplate="body" let-reserva let-columns="columns">                                <tr [ngClass]="{                                \'alojados-actual\': esReservaActual(reserva.fecha_inicio, reserva.fecha_fin),                                \'reserva-pasada\':  esReservaPasada(reserva.fecha_fin),                                \'dia-entrada\':  esInicioHoyYAntesDeHoraEntrada(reserva.fecha_inicio)                              }">                                    <td>Entrada: {{reserva.fecha_inicio | date:\'dd/MM/yyyy\'}} Salida:                                        {{reserva.fecha_fin | date:\'dd/MM/yyyy\'}}</td>                                    <!-- <td></td> -->                                    <td>{{reserva.precio}}</td>                                    <td>{{obtenerNombresMascotas(reserva.mascotas) | titlecase}}</td>                                    <td><p-button [hidden]="esReservaPasada(reserva.fecha_inicio)" type="button"                                            icon="pi pi-trash" label="Cancelar"                                            (click)="deleteReserva(reserva.id_reserva)"                                            [style]="{ width: \'100%\', height: \'40%\' }" [rounded]="true"></p-button>                                        @if (esInicioHoyYAntesDeHoraEntrada(reserva.fecha_inicio)) {                                        <p>Check-in antes de las 14:00h</p>                                        }                                        @else if (esReservaActual(reserva.fecha_inicio, reserva.fecha_fin)) {                                        <p>Mascotas alojadas</p>                                        }                                    </td>                                </tr>                            </ng-template>                        </p-table>                        } @else {                        <p class="text-center">No hay reservas</p>                        }                    </div>                    <div class="col-span-full md:col-span-3 overflow-hidden flex relative p-3 rounded-xl                        bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm">                        <div class=" px-4 py-4 sm:px-0 bg-white shadow-lg rounded-xl sm:p-12 w-full">                            <div class="max-w-md mx-4 sm:mx-auto md:mx-4 lg:mx-auto">                                <div>                                    <h1 class="text-2xl text-paws-play-400 text-center">Mis datos</h1>                                </div>                                <div class="divide-y divide-gray-200">                                    <form [formGroup]="formUser" (ngSubmit)="modificarUsuario()"                                        class="py-0 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7">                                        <!-- <input [hidden]="true" pInputText [ngStyle]="{\'width\':\'100%\'}" /> -->                                        <div class="relative">                                            <label for="nombre">Nombre</label>                                            <br>                                            <input id="nombre" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                formControlName="nombre" />                                            @if(this.formUser.get(\'nombre\')?.errors?.[\'required\']) {                                            <span class="text-red-500">(Campo requerido)</span>                                            }                                            @if(this.formUser.get(\'nombre\')?.errors?.[\'minlength\']) {                                            <span class="text-red-500">(Al menos 3 caracteres)</span>                                            }                                        </div>                                        <div class="relative">                                            <label for="apellidos">Apellidos</label>                                            <br>                                            <input id="apellidos" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                formControlName="apellidos" />                                            @if(this.formUser.get(\'apellidos\')?.errors?.[\'required\']) {                                            <span class="text-red-500">(Campo requerido)</span>                                            }                                            @if(this.formUser.get(\'apellidos\')?.errors?.[\'minlength\']) {                                            <span class="text-red-500">(Al menos 3 caracteres)</span>                                            }                                        </div>                                        <div class="relative">                                            <label for="direccion">Direccion</label>                                            <br>                                            <input id="direccion" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                formControlName="direccion" />                                            @if(this.formUser.get(\'direccion\')?.errors?.[\'required\']) {                                            <span class="text-red-500">(Campo requerido)</span>                                            }                                            @if(this.formUser.get(\'direccion\')?.errors?.[\'minlength\']) {                                            <span class="text-red-500">(Al menos 10 caracteres)</span>                                            }                                        </div>                                        <div class="relative">                                            <p-button type="submit" icon="pi pi-user-edit" label="Modificar"                                                [style]="{ width: \'100%\', height: \'40px\' }" [rounded]="true"></p-button>                                        </div>                                    </form>                                </div>                            </div>                        </div>                    </div>                    <div class="col-span-full md:col-span-3 overflow-hidden flex relative p-3 rounded-xl                     bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm">                        <div class="px-4 py-4 sm:px-0 bg-white shadow-lg rounded-xl sm:p-12 w-full">                            <div class="max-w-md mx-4 sm:mx-auto md:mx-4 lg:mx-auto">                                <div>                                    <h1 class="text-2xl text-paws-play-400 text-center">Mis mascotas</h1>                                </div>                                <div class="flex flex-col justify-between items-stretch h-full">                                    <div                                        class="py-0 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7">                                        <div class="relative mt-6 mx-2">                                            <p-button (click)="showDialogAdd()" icon="pi pi-plus"                                                label="Añadir nueva mascota" [style]="{ width: \'100%\' }"></p-button>                                            <p-dialog header="Añade una mascota" [(visible)]="visibleAdd"                                                [style]="{ width: \'400px\', height: \'450px\' }">                                                <form [formGroup]="formAddMascota" (ngSubmit)="agregarMascota()">                                                    <label for="nombre">Nombre*</label>                                                    <br>                                                    <input id="nombre" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                        formControlName="nombre" />                                                    @if(this.formAddMascota.get(\'nombre\')?.errors?.[\'required\']) {                                                    <span class="text-red-500">(Campo requerido)</span>                                                    <br>                                                    }                                                    @if(this.formAddMascota.get(\'nombre\')?.errors?.[\'minlength\']) {                                                    <span class="text-red-500">(Al menos 3 caracteres)</span>                                                    <br>                                                    }                                                    <label for="fecha_nac">Fecha de nacimiento*</label>                                                    <br>                                                    <input id="fecha_nac" type="date" pInputText [max]="hoy.toISOString().split(\'T\')[0]"                                                        [ngStyle]="{\'width\':\'100%\'}" formControlName="fecha_nac" />                                                    @if(this.formAddMascota.get(\'fecha_nac\')?.errors?.[\'required\']) {                                                    <span class="text-red-500">(Campo requerido)</span>                                                    <br>                                                    }                                                    <label for="alergias">Alergias</label>                                                    <br>                                                    <input id="alergias" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                        formControlName="alergias" />                                                    <label for="observaciones">Observaciones</label>                                                    <br>                                                    <input id="observaciones" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                        formControlName="observaciones" />                                                    <button                                                        class="bg-paws-play-50 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2                                                    hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"                                                    >                                                    <!-- [disabled]="formAddMascota.invalid" -->                                                    Añadir</button>                                                </form>                                            </p-dialog>                                            <div class="px-0 py-8 grid grid-cols-1 gap-2 ">                                                @if(mascotas){                                                @if (mascotas.length > 0) {                                                @for (mascota of mascotas; track $index) {                                                <!-- <p>{{mascota.nombre}}</p> -->                                                <p-button (click)="showDialogMod(mascota)" icon="pi pi-pencil"                                                    [label]="mascota.nombre | titlecase"                                                    [style]="{ width: \'100%\', height: \'40px\' }"                                                    [rounded]="true"></p-button>                                                <p-dialog header="Modificar mascota" [(visible)]="visibleMod"                                                    [style]="{ width: \'400px\', height: \'450px\' }">                                                    <form [formGroup]="formModMascota"                                                        (ngSubmit)="modificarMascota(mascota.id_mascota)">                                                        <!-- <input [hidden]="true" [value]="mascota.id_mascota" /> -->                                                        <label for="nombre">Nombre</label>                                                        <br>                                                        <input id="nombre" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                            formControlName="nombre" />                                                        @if(this.formModMascota.get(\'nombre\')?.errors?.[\'required\'])                                                        {                                                        <span class="text-red-500">(Campo requerido)</span>                                                        <br>                                                        }                                                        @if(this.formModMascota.get(\'nombre\')?.errors?.[\'minlength\'])                                                        {                                                        <span class="text-red-500">(Al menos 3 caracteres)</span>                                                        <br>                                                        }                                                        <label for="fecha">Fecha de nacimiento</label>                                                        <br>                                                        <!-- mirar esto de la fecha -->                                                        <!-- <p-calendar [style]="{\'width\':\'100%\'}" formControlName="fecha_nac" dateFormat="yy.mm.dd"></p-calendar> -->                                                        <input id="fecha_nac" type="date" pInputText                                                            [ngStyle]="{\'width\':\'100%\'}" formControlName="fecha_nac" />                                                        @if(this.formModMascota.get(\'fecha_nac\')?.errors?.[\'required\'])                                                        {                                                        <span class="text-red-500">(Campo requerido)</span>                                                        <br>                                                        }                                                        <br>                                                        <label for="alergias">Alergias</label>                                                        <br>                                                        <input id="alergias" pInputText [ngStyle]="{\'width\':\'100%\'}"                                                            formControlName="alergias" />                                                        <label for="observaciones">Observaciones</label>                                                        <br>                                                        <input id="observaciones" pInputText                                                            [ngStyle]="{\'width\':\'100%\'}"                                                            formControlName="observaciones" />                                                        <div class="flex justify-between">                                                            <button                                                                class="bg-paws-play-50 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2                                                                        hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"                                                                >                                                                <!-- [disabled]="formModMascota.invalid" -->                                                                Actualizar</button>                                                            @if (puedeBorrar()) { <button                                                                class="bg-orange-500 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2                                                                              hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"                                                                (click)="deleteMascota(mascota.id_mascota)"                                                                type="button">Borrar</button>                                                            }                                                        </div>                                                    </form>                                                </p-dialog>                                                }                                                } @else {                                                <p>No hay mascotas</p>                                                }                                                }                                            </div>                                        </div>                                    </div>                                </div>                            </div>                        </div>                    </div>                </div>            </div>        </div>    </div></section></div>'
+    var COMPONENTS = [{'name': 'AdminInfoComponent', 'selector': 'app-admin-info'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainComponent', 'selector': 'app-main'},{'name': 'ReservaComponent', 'selector': 'app-reserva'},{'name': 'ReservasComponent', 'selector': 'app-reservas'},{'name': 'SinginComponent', 'selector': 'app-singin'},{'name': 'UserInfoComponent', 'selector': 'app-user-info'},{'name': 'UsuariosComponent', 'selector': 'app-usuarios'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserInfoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserInfoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

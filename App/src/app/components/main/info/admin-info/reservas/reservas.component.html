@@ -1,0 +1,65 @@
+<div>
+  <h1 class="text-2xl text-paws-play-100 text-center mb-2">RESERVAS</h1>
+</div>
+<div class="col-span-full lg:col-span-6 overflow-hidden relative rounded-xl">
+  @if (reservas.length > 0) {
+    <button type="button" class="p-3 btn btn-primary w-full mb-0 text-paws-play-300 bg-gray-200"
+    (click)="soloReservasActuales = !soloReservasActuales">
+    {{soloReservasActuales ? 'Mostrar todas las reservas' : 'Mostrar reservas actuales'}}</button>
+  <p-table [value]="reservas" [tableStyle]="{'min-width': '0rem' }" [scrollable]="true" scrollHeight="50vh">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>Fecha</th>
+        <th>Propietario</th>
+        <th>Nº mascotas</th>
+        <th>Mascotas</th>
+        <th>Precio</th>
+        <th>Peticiones</th>
+        <th>Cancelar</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-reserva let-columns="columns">
+      <tr *ngIf="!soloReservasActuales || esReservaActual(reserva.fecha_inicio, reserva.fecha_fin)" [ngClass]="{
+            'alojados-actual': esReservaActual(reserva.fecha_inicio, reserva.fecha_fin),
+            'reserva-pasada':  esReservaPasada(reserva.fecha_fin)
+          }">
+        <td>Entrada: {{reserva.fecha_inicio | date:'dd/MMM/yyyy'}} Salida: {{reserva.fecha_fin | date:'dd/MMM/yyyy'}}</td>
+        <!-- <td></td> -->
+        <td>{{reserva.nombre | titlecase}}</td>
+        <td>{{reserva.mascotas.length}}</td>
+        <td>
+          <ul>
+            @for (mascota of reserva.mascotas; track $index) {
+              <details>
+                <summary>{{mascota.nombre | titlecase}}</summary>
+                @if (mascota.alergias != '') {
+                  <p><b>Alergias: </b>{{mascota.alergias}}</p>
+                }
+                @if (mascota.observaciones != '') {
+                  <p><b>Observaciones: </b>{{mascota.observaciones}}</p>
+                }
+              </details>
+            }
+          </ul>  
+        </td>
+        <td>{{reserva.precio}}</td>
+        <!-- Cambiar datalist por dialog de primeng si tengo tiempo... -->
+        <td>
+          @if (reserva.peticiones != null) {
+            <details>
+              <summary></summary>{{reserva.peticiones}}
+            </details>
+          }
+          
+        </td>
+        <td><p-button [hidden]="esReservaPasada(reserva.fecha_fin)" type="button" icon="pi pi-trash" label="Cancelar"
+            (click)="deleteReserva(reserva.id_reserva)" [style]="{ width: '100%', height: '40%' }"
+            [rounded]="true"></p-button></td>
+      </tr>
+    </ng-template>
+  </p-table>
+  } @else {
+  <p class="text-center">No hay reservas</p>
+  }
+
+</div>

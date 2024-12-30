@@ -1,0 +1,35 @@
+<div class="min-h-screen bg-transparent py-6 flex flex-col justify-center sm:py-12">
+    <div class="relative py-3 sm:max-w-xl sm:mx-auto sm:w-8/12">
+        <div
+            class="absolute inset-0 bg-gradient-to-l from-paws-play-400 to-paws-play-50 shadow-lg transform skew-y-6 sm:skew-y-0 sm:rotate-6 rounded-3xl">
+        </div>
+        <div class="relative px-4 py-10 bg-white shadow-lg rounded-3xl sm:p-20">
+            <div class="max-w-md mx-auto">
+                <div>
+                    <h1 class="text-2xl  text-paws-play-400 text-center">Iniciar Sesion</h1>
+                </div>
+                <div class="divide-y divide-gray-200">
+                    <form [formGroup]="formLogin" (ngSubmit)="submit()">
+                        <div class="py-8 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7">
+                            <div class="relative">
+                                <label for="email">Email</label>
+                                <br>
+                                <input id="email" pInputText [ngStyle]="{'width':'100%'}" formControlName="email" />
+                            </div>
+                            <div class="relative ">
+                                <label>Contraseña</label>
+                                <br>
+                                <p-password id="password" [toggleMask]="true" [feedback]="false"
+                                    [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" formControlName="password"></p-password>
+                            </div>
+                            <div class="relative">
+                                <button
+                                    class="bg-paws-play-50 text-paws-play-300 rounded-full px-8 py-1 hover:bg-paws-play-400 oh">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+
+/* @import "primeng/resources/themes/arya-orange/theme.css"; */
+/* @import "primeng/resources/themes/vela-orange/theme.css"; */
+/* @import "primeng/resources/themes/saga-orange/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+ */
+/* .color1 { color: #f29226; } // Naranja
+.color2 { color: #003459; } // Azul oscuro
+.color3 { color: #e8e5e0; } // Beige claro
+.color4 { color: #f2d492; } // Amarillo claro
+.color5 { color: #f2b446; } // Naranja claro */
+
+// styles.scss
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer primeng; //not necessary I think
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+@import "primeicons/primeicons.css";
+

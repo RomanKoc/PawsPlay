@@ -1,0 +1,81 @@
+<form [formGroup]="formReserva" (ngSubmit)="confirmarReserva()">
+    <div class="min-h-screen bg-transparent py-6 flex flex-col justify-center sm:py-12">
+        <div class="relative py-3 sm:max-w-xl sm:mx-auto sm:w-8/12">
+            <div
+                class="absolute inset-0 bg-gradient-to-l from-paws-play-400 to-paws-play-50 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-12 rounded-3xl">
+            </div>
+            <div class="relative px-4 py-10 bg-white shadow-lg rounded-3xl sm:p-20">
+                <div class="max-w-md mx-auto divide-y">
+                    @if (tieneMascotas) {
+                    <div>
+                        <h1 class="text-2xl  text-paws-play-400 text-center">Nueva Reserva</h1>
+                    </div>
+                    <div class="py-8 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7">
+                        <p  class="ml-5 sm:ml-1 text-paws-play-100">Precio {{precioPorDia}}€ por mascota por noche.</p>
+                        <h2 class="ml-5 sm:ml-1">Selecciona las mascotas*:</h2>
+                        <div class="grid grid-cols-1 ml-5 sm:ml-1 sm:grid-cols-2 gap-4">
+                            <div *ngFor="let mascota of mascotas">
+                                <input type="checkbox" [formControlName]="'mascota_' + mascota.id_mascota"
+                                    (change)="calcularPrecioTotal()">
+                                <label> {{mascota.nombre | titlecase}}</label>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 justify-center items-center">
+                            <p-calendar [firstDayOfWeek]="1" formControlName="fecha_inicio" [touchUI]="true"
+                                [readonlyInput]="true" placeholder="Inicio" dateFormat="dd.mm.yy"
+                                [minDate]="date_inicio" [maxDate]="maxDate" [disabledDates]="fechasCompletas"
+                                (onShow)="onShowCalendar()">
+                            </p-calendar>
+                            <p-calendar [firstDayOfWeek]="1" formControlName="fecha_fin" class="ml-1" [touchUI]="true"
+                                [readonlyInput]="true" placeholder="Fin" dateFormat="dd.mm.yy" [minDate]="date_fin"
+                                [maxDate]="maxDate" [disabledDates]="fechasCompletas">
+                            </p-calendar>
+                        </div>
+                        <div class="relative mx-3 sm:mx-0">
+                            <label for="peticiones">Peticiones</label>
+                            <br>
+                            <input id="peticiones" type="text" pInputText [ngStyle]="{'width':'100%'}"
+                                formControlName="peticiones" />
+                        </div>
+                        <div class="flex gap-4 justify-between ">
+                            <p class="ml-5 sm:ml-0"><b>Precio total</b>
+                                @if (totalNoches != 0) {
+                                ({{totalNoches}} noches)
+                                }
+                            </p>
+                            <p class="mr-5 sm:mr-0"><b>{{precioTotal}}€</b></p>
+                        </div>
+                        <hr>
+                        <div class="relative ">
+                            <button
+                                class="bg-paws-play-50 text-paws-play-300 rounded-full px-8 py-1 ml-5 sm:ml-0 hover:bg-paws-play-400 oh"
+                                [ngStyle]="{ 'text-decoration': !esFormularioValido() ? 'line-through' : 'none' }"
+                                type="submit" [disabled]="!esFormularioValido()">Reservar
+                            </button>
+                        </div>
+                    </div>
+                    } @else {
+                    <div>
+                        <h1 class="text-2xl  text-paws-play-400 text-center">Añade tu mascota para poder reservar</h1>
+                        <a routerLink="/user-info"
+                            class="relative inline-flex items-center justify-center p-4 px-6 mt-4 py-3 overflow-hidden font-medium text-paws-play-300 transition duration-300 ease-out border-2 border-paws-play-100 rounded-full shadow-md group"
+                            style="width: 100%;">
+                            <span
+                                class="absolute inset-0 flex items-center justify-center w-full h-full text-paws-play-300 duration-300 -translate-x-full bg-paws-play-400 group-hover:translate-x-0 ease">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </span>
+                            <span
+                                class="absolute flex items-center justify-center w-full h-full text-paws-play-300 transition-all duration-300 transform group-hover:translate-x-full ease">Ir a mis datos</span>
+                            <span class="relative invisible">Añadir</span>
+                        </a>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

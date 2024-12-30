@@ -1,0 +1,55 @@
+<header
+  class="bg-paws-play-100 text-white border-b flex items-center justify-between p-4 shadow-lg pb-4">
+  <!-- Logo text or image -->
+  <div class="flex items-center justify-between mb-0">
+    <h1 class="leading-none text-2xl text-grey-darkest">
+      <a class="no-underline text-grey-darkest hover:text-black" href="">
+        <img src="../../../assets/logoPW.png" class="w-16 h-16 p-0 m-0">
+      </a>
+    </h1>
+
+    <a class="text-black hover:text-orange md:hidden" href="#">
+      <i class="fa fa-2x fa-bars"></i>
+    </a>
+  </div>
+  <nav>
+    <!-- añadir delante de items-center -> md:items-center para volver atras -->
+    <ul class="list-reset flex items-center">
+      <li class="mt-0">
+        <a class="hover:text-paws-play-50" href="">
+          <span>Inicio</span>
+        </a>
+      </li>
+      @if(logeado){
+        <li class="mt-0 ml-4">
+          <a class="hover:text-paws-play-50" routerLink="/reserva">
+            <span>Reservar</span>
+          </a>
+        </li>
+        <!-- Comentar para volver al menu de antes -->
+        <li class="mt-0 ml-4">
+          <a class="hover:text-paws-play-50" routerLink="/user-info">
+            <span>Mis datos</span>
+          </a>
+        </li>
+      }
+      @if (this.admin) 
+      {
+        <li class="mt-0 ml-4">
+          <a class="hover:text-paws-play-50" routerLink="/admin-info">
+            <span>ADMIN</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+  <div class=" mb-0 mt-0 ml-4">
+    <p-menu #menu [model]="items" [popup]="true"></p-menu>
+    @if(logeado){
+      <p-button  type="button" (click)="menu.toggle($event)" icon="pi pi-user" label="{{this.usuarioLogueado.nombre | titlecase}}" [raised]="true" styleClass="custom-button"></p-button>
+    } @else {
+      <p-button type="button" (click)="menu.toggle($event)" icon="pi pi-user" label="Usuario" [raised]="true" styleClass="custom-button"></p-button>
+    }
+  </div>
+
+</header>

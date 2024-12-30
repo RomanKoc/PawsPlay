@@ -1,0 +1,298 @@
+<section>
+    <div class="py-8">
+        <div class="mx-auto px-2 max-w-7xl text-paws-play-300">
+            <div class="relative">
+                <div class="relative z-10 grid gap-3 grid-cols-6">
+                    <div
+                        class="col-span-full lg:col-span-6 overflow-hidden relative p-8 rounded-xl bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm">
+                        @if (reservas.length > 0 ) {
+                        <p-table [value]="reservas" [tableStyle]="{'min-width': '0rem' }" [scrollable]="true"
+                            scrollHeight="40vh">
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Precio</th>
+                                    <th>Mascotas</th>
+                                    <th>Cancelar</th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-reserva let-columns="columns">
+                                <tr [ngClass]="{
+                                'alojados-actual': esReservaActual(reserva.fecha_inicio, reserva.fecha_fin),
+                                'reserva-pasada':  esReservaPasada(reserva.fecha_fin),
+                                'dia-entrada':  esInicioHoyYAntesDeHoraEntrada(reserva.fecha_inicio)
+                              }">
+                                    <td>Entrada: {{reserva.fecha_inicio | date:'dd MMM, yyyy'}} Salida:
+                                        {{reserva.fecha_fin | date:'dd MMM, yyyy'}}</td>
+                                    <!-- <td></td> -->
+                                    <td>{{reserva.precio}}€</td>
+                                    <td>{{obtenerNombresMascotas(reserva.mascotas) | titlecase}}</td>
+                                    <td><p-button [hidden]="esReservaPasada(reserva.fecha_inicio)" type="button"
+                                            icon="pi pi-trash" label="Cancelar"
+                                            (click)="deleteReserva(reserva.id_reserva)"
+                                            [style]="{ width: '100%', height: '40%' }" [rounded]="true"></p-button>
+                                        @if (esInicioHoyYAntesDeHoraEntrada(reserva.fecha_inicio)) {
+                                        <p>Check-in antes de las 14:00h</p>
+                                        }
+                                        @else if (esReservaActual(reserva.fecha_inicio, reserva.fecha_fin)) {
+                                        <p>Mascotas alojadas</p>
+                                        }
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                        } @else {
+                        <p class="text-center">No hay reservas</p>
+                        }
+
+                    </div>
+                    <div class="col-span-full md:col-span-3 overflow-hidden flex relative p-3 rounded-xl
+                        bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm">
+                        <div class=" px-4 py-4 sm:px-0 bg-white shadow-lg rounded-xl sm:p-12 w-full">
+                            <div class="max-w-md mx-4 sm:mx-auto md:mx-4 lg:mx-auto">
+                                <div>
+                                    <h1 class="text-2xl text-paws-play-400 text-center">Mis datos</h1>
+                                </div>
+                                <div class="divide-y divide-gray-200">
+                                    <form [formGroup]="formUser" (ngSubmit)="modificarUsuario()"
+                                        class="py-0 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7">
+                                        <!-- <input [hidden]="true" pInputText [ngStyle]="{'width':'100%'}" /> -->
+                                        <div class="relative">
+                                            <label for="nombre">Nombre</label>
+                                            <br>
+                                            <input id="nombre" pInputText [ngStyle]="{'width':'100%'}"
+                                                formControlName="nombre" />
+                                            @if(this.formUser.get('nombre')?.errors?.['required']) {
+                                            <span class="text-red-500">(Campo requerido)</span>
+                                            }
+                                            @if(this.formUser.get('nombre')?.errors?.['minlength']) {
+                                            <span class="text-red-500">(Al menos 3 caracteres)</span>
+                                            }
+                                        </div>
+
+                                        <div class="relative">
+                                            <label for="apellidos">Apellidos</label>
+                                            <br>
+                                            <input id="apellidos" pInputText [ngStyle]="{'width':'100%'}"
+                                                formControlName="apellidos" />
+                                            @if(this.formUser.get('apellidos')?.errors?.['required']) {
+                                            <span class="text-red-500">(Campo requerido)</span>
+                                            }
+                                            @if(this.formUser.get('apellidos')?.errors?.['minlength']) {
+                                            <span class="text-red-500">(Al menos 3 caracteres)</span>
+                                            }
+                                        </div>
+
+                                        <div class="relative">
+                                            <label for="direccion">Direccion</label>
+                                            <br>
+                                            <input id="direccion" pInputText [ngStyle]="{'width':'100%'}"
+                                                formControlName="direccion" />
+                                            @if(this.formUser.get('direccion')?.errors?.['required']) {
+                                            <span class="text-red-500">(Campo requerido)</span>
+                                            }
+                                            @if(this.formUser.get('direccion')?.errors?.['minlength']) {
+                                            <span class="text-red-500">(Al menos 10 caracteres)</span>
+                                            }
+                                        </div>
+                                        <div class="relative">
+                                            <p-button type="submit" icon="pi pi-user-edit" label="Modificar"
+                                                [style]="{ width: '100%', height: '40px' }" [rounded]="true"></p-button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-full md:col-span-3 overflow-hidden flex relative p-3 rounded-xl
+                     bg-gradient-to-tl from-paws-play-400 to-paws-play-50 border border-gray-300 shadow-sm">
+                        <div class="px-4 py-4 sm:px-0 bg-white shadow-lg rounded-xl sm:p-12 w-full">
+                            <div class="max-w-md mx-4 sm:mx-auto md:mx-4 lg:mx-auto">
+                                <div>
+                                    <h1 class="text-2xl text-paws-play-400 text-center">Mis mascotas</h1>
+                                </div>
+                                <div class="flex flex-col justify-between items-stretch h-full">
+                                    <div
+                                        class="py-0 text-base leading-6 space-y-4 text-paws-play-300 sm:text-lg sm:leading-7">
+                                        <div class="relative mt-6 mx-2">
+                                            <p-button (click)="showDialogAdd()" icon="pi pi-plus"
+                                                label="Añadir nueva mascota" [style]="{ width: '100%' }"></p-button>
+                                            <p-dialog header="Añade una mascota" [(visible)]="visibleAdd"
+                                                [style]="{ width: '400px', height: '450px' }">
+                                                <form [formGroup]="formAddMascota" (ngSubmit)="agregarMascota()">
+                                                    <label for="nombre">Nombre*</label>
+                                                    <br>
+                                                    <input id="nombre" pInputText [ngStyle]="{'width':'100%'}"
+                                                        formControlName="nombre" />
+                                                    @if(this.formAddMascota.get('nombre')?.errors?.['required']) {
+                                                    <span class="text-red-500">(Campo requerido)</span>
+                                                    <br>
+                                                    }
+                                                    @if(this.formAddMascota.get('nombre')?.errors?.['minlength']) {
+                                                    <span class="text-red-500">(Al menos 3 caracteres)</span>
+                                                    <br>
+                                                    }
+                                                    <label for="fecha_nac">Fecha de nacimiento*</label>
+                                                    <br>
+                                                    <input id="fecha_nac" type="date" pInputText [max]="hoy.toISOString().split('T')[0]"
+                                                        [ngStyle]="{'width':'100%'}" formControlName="fecha_nac" />
+                                                    @if(this.formAddMascota.get('fecha_nac')?.errors?.['required']) {
+                                                    <span class="text-red-500">(Campo requerido)</span>
+                                                    <br>
+                                                    }
+                                                    <label for="alergias">Alergias</label>
+                                                    <br>
+                                                    <input id="alergias" pInputText [ngStyle]="{'width':'100%'}"
+                                                        formControlName="alergias" />
+                                                    <label for="observaciones">Observaciones</label>
+                                                    <br>
+                                                    <input id="observaciones" pInputText [ngStyle]="{'width':'100%'}"
+                                                        formControlName="observaciones" />
+                                                    <button
+                                                        class="bg-paws-play-50 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                    hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"
+                                                    >
+                                                    <!-- [disabled]="formAddMascota.invalid" -->
+                                                    Añadir</button>
+                                                </form>
+                                            </p-dialog>
+                                            <div class="px-0 py-8 grid grid-cols-1 gap-2 ">
+                                                @if(mascotas){
+                                                @if (mascotas.length > 0) {
+                                                @for (mascota of mascotas; track $index) {
+                                                <!-- <p>{{mascota.nombre}}</p> -->
+                                                <p-button (click)="showDialogMod(mascota)" icon="pi pi-pencil"
+                                                    [label]="mascota.nombre | titlecase"
+                                                    [style]="{ width: '100%', height: '40px' }"
+                                                    [rounded]="true"></p-button>
+                                                <p-dialog header="Modificar mascota" [(visible)]="visibleMod"
+                                                    [style]="{ width: '400px', height: '450px' }">
+                                                    <form [formGroup]="formModMascota"
+                                                        (ngSubmit)="modificarMascota()">
+                                                        <!-- <input [hidden]="true" [value]="mascota.id_mascota" /> -->
+                                                        <label for="nombre">Nombre</label>
+                                                        <br>
+                                                        <input id="nombre" pInputText [ngStyle]="{'width':'100%'}"
+                                                            formControlName="nombre" />
+                                                        @if(this.formModMascota.get('nombre')?.errors?.['required'])
+                                                        {
+                                                        <span class="text-red-500">(Campo requerido)</span>
+                                                        <br>
+                                                        }
+                                                        @if(this.formModMascota.get('nombre')?.errors?.['minlength'])
+                                                        {
+                                                        <span class="text-red-500">(Al menos 3 caracteres)</span>
+                                                        <br>
+                                                        }
+                                                        <label for="fecha">Fecha de nacimiento</label>
+                                                        <br>
+                                                        <!-- mirar esto de la fecha -->
+                                                        <!-- <p-calendar [style]="{'width':'100%'}" formControlName="fecha_nac" dateFormat="yy.mm.dd"></p-calendar> -->
+                                                        <input id="fecha_nac" type="date" pInputText
+                                                            [ngStyle]="{'width':'100%'}" formControlName="fecha_nac" />
+                                                        @if(this.formModMascota.get('fecha_nac')?.errors?.['required'])
+                                                        {
+                                                        <span class="text-red-500">(Campo requerido)</span>
+                                                        <br>
+                                                        }
+                                                        <br>
+                                                        <label for="alergias">Alergias</label>
+                                                        <br>
+                                                        <input id="alergias" pInputText [ngStyle]="{'width':'100%'}"
+                                                            formControlName="alergias" />
+                                                        <label for="observaciones">Observaciones</label>
+                                                        <br>
+                                                        <input id="observaciones" pInputText
+                                                            [ngStyle]="{'width':'100%'}"
+                                                            formControlName="observaciones" />
+                                                        <div class="flex justify-between">
+                                                            <button
+                                                                class="bg-paws-play-50 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                                        hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"
+                                                                >
+                                                                <!-- [disabled]="formModMascota.invalid" -->
+                                                                Actualizar</button>
+                                                            @if (puedeBorrar()) { <button
+                                                                class="bg-orange-500 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                                              hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"
+                                                                (click)="deleteMascota(mascota.id_mascota)"
+                                                                type="button">Borrar</button>
+                                                            }
+                                                        </div>
+
+                                                    </form>
+                                                </p-dialog>
+                                                }
+                                                } @else {
+                                                <p>No hay mascotas</p>
+                                                }
+                                                }
+                                                <p-dialog header="Modificar mascota" [(visible)]="visibleMod"
+                                                    [style]="{ width: '400px', height: '450px' }">
+                                                    <form [formGroup]="formModMascota"
+                                                        (ngSubmit)="modificarMascota()">
+                                                        <!-- <input [hidden]="true" [value]="mascota.id_mascota" /> -->
+                                                        <label for="nombre">Nombre</label>
+                                                        <br>
+                                                        <input id="nombre" pInputText [ngStyle]="{'width':'100%'}"
+                                                            formControlName="nombre" />
+                                                        @if(this.formModMascota.get('nombre')?.errors?.['required'])
+                                                        {
+                                                        <span class="text-red-500">(Campo requerido)</span>
+                                                        <br>
+                                                        }
+                                                        @if(this.formModMascota.get('nombre')?.errors?.['minlength'])
+                                                        {
+                                                        <span class="text-red-500">(Al menos 3 caracteres)</span>
+                                                        <br>
+                                                        }
+                                                        <label for="fecha">Fecha de nacimiento</label>
+                                                        <br>
+                                                        <!-- mirar esto de la fecha -->
+                                                        <!-- <p-calendar [style]="{'width':'100%'}" formControlName="fecha_nac" dateFormat="yy.mm.dd"></p-calendar> -->
+                                                        <input id="fecha_nac" type="date" pInputText
+                                                            [ngStyle]="{'width':'100%'}" formControlName="fecha_nac" />
+                                                        @if(this.formModMascota.get('fecha_nac')?.errors?.['required'])
+                                                        {
+                                                        <span class="text-red-500">(Campo requerido)</span>
+                                                        <br>
+                                                        }
+                                                        <br>
+                                                        <label for="alergias">Alergias</label>
+                                                        <br>
+                                                        <input id="alergias" pInputText [ngStyle]="{'width':'100%'}"
+                                                            formControlName="alergias" />
+                                                        <label for="observaciones">Observaciones</label>
+                                                        <br>
+                                                        <input id="observaciones" pInputText
+                                                            [ngStyle]="{'width':'100%'}"
+                                                            formControlName="observaciones" />
+                                                        <div class="flex justify-between">
+                                                            <button
+                                                                class="bg-paws-play-50 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                                        hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"
+                                                                >
+                                                                <!-- [disabled]="formModMascota.invalid" -->
+                                                                Actualizar</button>
+                                                            @if (puedeBorrar()) { <button
+                                                                class="bg-orange-500 text-paws-play-300 rounded-full mt-4 px-8 py-1 mb-2
+                                                                              hover:bg-gradient-to-tl from-paws-play-400 to-paws-play-50"
+                                                                (click)="deleteMascota(mascotaMod.id_mascota)"
+                                                                type="button">Borrar</button>
+                                                            }
+                                                        </div>
+
+                                                    </form>
+                                                </p-dialog>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

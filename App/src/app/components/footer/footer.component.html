@@ -1,0 +1,244 @@
+<footer class="bg-paws-play-100 mt-auto">
+    <div class="px-4 pt-6 mx-auto  lg:max-w-full xl:max-w-screen-xl lg:px-24 xl:px-8">
+        <div class="grid gap-2 row-gap-3 mb-4 md:grid-cols-2 lg:grid-cols-4">
+
+            <div class="space-y-2 text-sm md:col-span-3">
+                <p class="text-base font-bold tracking-wide text-paws-play-50">Contacto</p>
+                <div class="flex">
+                    <p class="mr-1 text-paws-play-200">Telefono:</p>
+                    <a href="tel:633555805" aria-label="Our phone" title="Our phone"
+                        class="transition-colors G duration-300 text-white hover:text-paws-play-50">633-555-805</a>
+                </div>
+                <div class="flex">
+                    <p class="mr-1 text-paws-play-200">Email:</p>
+                    <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email"
+                        class="transition-colors duration-300 text-white hover:text-paws-play-50">info&#64;paws.play.es</a>
+                </div>
+                <div class="flex">
+                    <p class="mr-1 text-paws-play-200">Direccion:</p>
+                    <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer"
+                        aria-label="Our address" title="Our address"
+                        class="transition-colors duration-300 text-white hover:text-paws-play-50">
+                        Calle Falsa 123, Palencia (34005)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="flex flex-col-reverse justify-between pt-3 pb-5 border-t lg:flex-row">
+            <p class="text-sm text-white">© Copyright 2024 Paws&Play. Todos los derechos reservados.</p>
+            <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 md:space-y-0 md:space-x-5 md:flex-row">
+                <li>
+                    <a (click)="showPreguntas()"
+                        class="text-sm text-white transition-colors duration-300  hover:text-paws-play-50 cursor-pointer">
+                        Preguntas Frecuentes
+                    </a>
+                    <p-dialog header="Preguntas Frecuentes" [(visible)]="preguntas"
+                        [style]="{ width: '90vw', height: '65vh' }">
+
+                        <b>Tarifa</b>
+                        <p>Tenemos una tarifa fija de 18€ por mascota y dia durante todo el año, proximamente ofrecereceremos
+                            servicios de guarderia de día y descuentos de larga estancia.
+                        </p>
+                        <br>
+                        <b>Realizar reserva</b>
+                        <p>Para realizar una reserva necesitara estar registrado en la aplicación. Una vez registrado
+                            podrá acceder a la sección de reservas y seleccionar la mascota que alojara (al menos 1ª).
+                            Una vez seleccionada, deberá seleccionar las fechas y confirmar la reserva. Las reservas
+                            estan limitadas a 2 meses de antelación por logistica. Si usted ve que no puede reservar mas
+                            de x dias es que esa fecha ya esta completa.
+                        </p>
+                        <br>
+                        <b>Hora de entrada</b>
+                        <p>El horario de entrada y salida sera las 14:00 horas. Si necesita entrar antes o salir mas
+                            tarde, deberá ponerse en contacto con el administrador de la aplicación a través del correo
+                            electrónico <b>info&#64;paws.play.es</b> y escribir en el asunto del correo "Horario de
+                            entrada/salida". No tendra que hacer nada mas y podra venir a la hora establecida.
+                        </p>
+                        <br>
+                        <b>Reserva el mismo dia fuera de hora</b>
+                        <p>Si decide reservar el mismo dia despues de las 14:00 horas, es conveniente que se ponga en contacto
+                            a traves del correo electronico <b>info&#64;paws.play.es</b> y escribir en el asunto del correo con la hora
+                            de llegada, si no, no podremos garantizar la reserva y esta podra ser cancelada.
+                        </p>
+                        <br>
+                        <b>Cancelacion de la reserva</b>
+                        <p>Podra cancelar la reserva, siempre y cuando no haya pasado el plazo de cancelación que sera,
+                            hasta el dia anterior a la entrada de la mascota/as. Para cancelar la reserva deberá acceder 
+                            a la sección de 'Mis Datos' y dar a 'Cancelar' en la reserva corresponiente.
+                        </p>
+                        <br>
+                        <b>Problemas de salud, observaciones o peticiones generales</b>
+                        <p>Queremos brindar una antencion lo mas personalizada posible para todos los casos posibles, si su
+                            mascota tiene alguna alergia o intolerancia alimentaria, anotelo en alergias al registrarla,
+                            por otro lado si quiere dejar cualqueir otra observacion hagalo en el campo observaciones.
+                            Para una peticion general de sus mascotas o propia de esa reserva podra anotarlo en el momento
+                            de realizar la reserva en el campo de peticiones.
+                        </p>
+                        <br>
+                        
+                        <b>Puedo traer comida?</b>
+                        <p>Si puede traer comida, pero no es necesario. Nosotros proporcionamos la comida para las
+                            mascotas, pero si su mascota tiene una dieta especial, puede traer su propia comida.
+                        </p>
+                        <br>
+                        <b>Hay calefaccion o aire acondicionado?</b>
+                        <p>Si tenemos calefacción y aire acondicionado en todas las habitaciones de la guardería.
+                            Al igual que muchas zonas de sombra en el exterior, acceso a piscina y una parte de rio.
+                        </p>
+                        <br>
+                        <b>Si mi mascota se pone enferma o hay un accidente</b>
+                        <p>Tenemos un veterinario de guardia las 24 horas del día, por lo que si su mascota se pone
+                            enferma o tiene un accidente, se le atenderá inmediatamente.
+                        </p>
+                        <br>
+                        <b>Se aceptan otro tipo de mascotas?</b>
+                        <p>No, de momento solo aceptamos perros. Estamos trabajando en la aceptación de otros tipos de
+                            mascotas, como gatos, conejos o hamsters.
+                        </p>
+                        <br>
+                        <b>Borrado de los datos de una mascota</b>
+                        <p>Solo se permitira el borrado de las mascotas si no tenemos reservas actuales, en cuanto
+                            tengamos una reserva actuales no se podra borrar la mascota. Para borrar una mascota deberá
+                            acceder a la sección de 'Mis Datos' y dar a nuestra mascota haciendo un click en su nombre,
+                            y seleccionar 'Borrar'.
+                        </p>
+                        <br>
+                        <b>Dar de baja el usuario:</b>
+                        <p>Para la realización de la baja de un usuario, el usuario deberá ponerse en contacto con el
+                            administrador de la aplicación a través del correo electrónico <b>info&#64;paws.play.es</b>
+                            y escribir en el asunto del correo "Baja de usuario". El administrador se pondrá en contacto
+                            con el usuario para confirmar la baja y proceder a la eliminación de la cuenta.
+                        </p>
+                        <br>
+                        <b>Uso inusual de la app</b>
+                        <p>Se procedera a la eliminación de la cuenta si se detecta un uso inusual de la aplicación, como
+                            por ejemplo, intentar acceder a zonas restringidas, intentar modificar datos de la
+                            aplicación, etc.
+                        </p>
+                        <br>
+                    </p-dialog>
+                </li>
+                <li>
+                    <a (click)="showPrivacidad()"
+                        class="text-sm text-white transition-colors duration-300  hover:text-paws-play-50 cursor-pointer">Politica
+                        Privacidad</a>
+                    <p-dialog header="Política de Privacidad de Paws & Play" [(visible)]="privacidad"
+                        [style]="{ width: '90vw', height: '60vh' }">
+                        <p>Bienvenido a Paws & Play, una aplicación dedicada al cuidado y entretenimiento de mascotas.
+                            <br> En Paws & Play, nos tomamos muy en serio la privacidad y seguridad de la información
+                            personal de nuestros usuarios. Esta Política de Privacidad explica cómo recopilamos, usamos,
+                            compartimos y protegemos su información cuando utiliza nuestra aplicación.
+                        </p><br>
+                        <b>1. Información que Recopilamos</b>
+                        <p>Recopilamos información que usted nos proporciona directamente al utilizar nuestra
+                            aplicación, como su nombre, dirección de correo electrónico, dirección postal y número de
+                            teléfono. También podemos recopilar información sobre sus mascotas, como su nombre, raza,
+                            edad y necesidades especiales.
+                        </p>
+                        <p>Además, recopilamos automáticamente cierta información sobre su dispositivo, incluida su
+                            dirección IP, tipo de dispositivo, identificadores únicos del dispositivo, tipo de
+                            navegador, ubicación geográfica y datos de uso de la aplicación.
+                        </p><br>
+                        <b>2. Uso de la Información</b>
+                        <p>Utilizamos la información que recopilamos para proporcionar y mejorar nuestros servicios,
+                            comunicarnos con usted, personalizar su experiencia en la aplicación, enviarle
+                            actualizaciones y promociones, y cumplir con las leyes y regulaciones aplicables.
+                        </p><br>
+                        <b>3. Compartir de la Información</b>
+                        <p>No compartimos su información personal con terceros, excepto en las siguientes
+                            circunstancias:
+                            <br>
+                            -Con su consentimiento.
+                            <br>
+                            -Con proveedores de servicios que nos ayudan a operar y mejorar nuestra aplicación.
+                            <br>
+                            -Cuando sea necesario para cumplir con la ley o proteger los derechos, la propiedad o la
+                            seguridad de Paws & Play, nuestros usuarios u otros.
+                        </p><br>
+                        <b>4. Seguridad de la Información</b>
+                        <p>Nos comprometemos a proteger la seguridad de su información personal y utilizamos medidas de
+                            seguridad técnicas, administrativas y físicas para protegerla contra el acceso no
+                            autorizado, la divulgación o el uso indebido.
+                        </p><br>
+                        <b>5. Sus Derechos</b>
+                        <p>Usted tiene derecho a acceder, corregir, actualizar o eliminar su información personal.
+                            También puede optar por no recibir comunicaciones de marketing de nuestra parte en cualquier
+                            momento.
+                        </p><br>
+                        <b>6. Cambios en esta Política</b>
+                        <p>Nos reservamos el derecho de actualizar o modificar esta Política de Privacidad en cualquier
+                            momento. Le notificaremos cualquier cambio mediante una notificación en nuestra aplicación o
+                            mediante otros medios antes de que el cambio entre en vigencia.
+                        </p><br>
+                        <b>7. Contacto</b>
+                        <p>Si tiene alguna pregunta o inquietud sobre nuestra Política de Privacidad, no dude en ponerse
+                            en contacto con nosotros a través de <b>info&#64;paws.play.es</b>.
+                        </p>
+                        <p>
+                        </p><br>
+                    </p-dialog>
+                </li>
+                <li>
+                    <a (click)="showTerminos()"
+                        class="text-sm text-white transition-colors duration-300  hover:text-paws-play-50 cursor-pointer">Terminos
+                        &amp; Condiciones</a>
+                    <p-dialog header="Terminos y condiciones" [(visible)]="terminos"
+                        [style]="{ width: '90vw', height: '60vh' }">
+                        <p> Por favor, lea atentamente estos Términos y Condiciones antes de utilizar la
+                            aplicación Paws & Play, operada por 'Paws&Plays S.A.'. Estos Términos
+                            rigen su acceso y uso de la Aplicación.</p>
+                        <br>
+                        <b>1. Aceptación de los Términos</b>
+                        <br>
+                        <p> Al acceder o utilizar la Aplicación, usted acepta estar legalmente vinculado por estos
+                            Términos y nuestra Política de Privacidad. Si no está de acuerdo con alguno de estos términos, no utilice la Aplicación.</p>
+                        <br>
+                        <b>2. Uso de la Aplicación</b>
+                        <br>
+                        <p> La Aplicación de Paws & Play es una plataforma que conecta a los usuarios con servicios de
+                            guardería y cuidado de mascotas. Usted acepta utilizar la Aplicación únicamente con fines
+                            legales y de conformidad con estos Términos.
+                        <br>
+                        <br>
+                        <b>3. Registro de la Cuenta</b>
+                        <br>
+                        <p>Para acceder a ciertas funciones de la Aplicación, puede ser necesario crear una cuenta y
+                            proporcionar información personal. Usted es responsable de mantener la confidencialidad de su
+                            cuenta y de toda actividad que ocurra bajo su cuenta.</p>
+                        <br>
+                        <b>4. Servicios de Guardería de Mascotas</b>
+                        <br>
+                        <p> La Aplicación facilita la reserva de servicios de guardería y cuidado de mascotas. Sin
+                            embargo,la disponibilidad de estos servicios está sujeta a la disponibilidad de los proveedores de
+                            servicios asociados.</p>
+                        <br>
+                        <b>5. Responsabilidad del Usuario</b>
+                        <br>
+                        <p> Usted acepta ser el único responsable de todas las actividades realizadas a través de su cuenta.
+                            Además, usted acepta indemnizar y eximir de responsabilidad a Paws & Play por cualquier reclamo,
+                            pérdida o daño que surja de su uso de la Aplicación.</p>
+                        <br>
+                        <b>6. Propiedad Intelectual</b>
+                        <br>
+                        <p> Todos los derechos de propiedad intelectual relacionados con la Aplicación son propiedad de Paws
+                            & Play. Usted no tiene derecho a copiar, modificar, distribuir, vender o crear trabajos
+                            derivados basados en la Aplicación sin nuestro consentimiento previo por escrito.</p>
+                        <br>
+                        <b> 7. Modificaciones de los Términos</b>
+                        <br>
+                        <p> Nos reservamos el derecho de modificar estos Términos en cualquier momento. Las modificaciones
+                            entrarán en vigencia después de su publicación en la Aplicación. Su uso continuado de la
+                            Aplicación después de la publicación de los cambios constituye su aceptación de los nuevos
+                            términos.
+                        </p>
+                        <br>
+                        <b> 8. Terminación</b>
+                        Nos reservamos el derecho de suspender o terminar su acceso a la Aplicación en cualquier momento
+                        sin previo aviso si viola estos Términos.
+                    </p-dialog>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
